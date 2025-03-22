@@ -1,30 +1,317 @@
 :root {
-  --white: #ffffff;
-  --black: #000000;
+  --color-basic-white: #ffffff;
+  --color-basic-black: #000000;
+
+  /* Background */
+  --color-background-base: var(--color-basic-white);
+  --color-background-contrast: var(--color-basic-white);
+
+  /* Content */
+  --color-content-high: var(--color-basic-black);
+  --color-content-mid: #79736D;
+  --color-content-low: #AAAAAA;
+  --color-content-inverse: var(--color-basic-white);
+
+  /* Special text */
+  --color-semantic-danger-high: #DF0000;
+  --color-text-placeholder: var(--color-content-low);
+  --color-text-disabled: #C2BFBC;
+
+  /* Borders */
+  --color-border-primary: var(--color-basic-black);
+  --color-border-secondary: #CCCCCC;
+
+  /* Buttons */
+  --color-btn-disabled: #F3F2F2;
+
+  /* Fonts */
+  --font-family-main: 'Helvetica', 'Arial', Sans-Serif;
+}
+
+:root {
+	--grid-spacing-01: 3.75rem;
+	--grid-spacing-02: 5rem;
+	--grid-spacing-03: 5rem;
+	--grid-spacing-04: 3.75rem;
+	--grid-spacing-05: 5rem;
+	--grid-spacing-06: 5rem;
+	--grid-template-spacing-01: 1.25rem;
+	--grid-template-spacing-02: 1.875rem;
+	--grid-template-spacing-03: 2.5rem;
+	--grid-template-spacing-04: 3.125rem;
+	--grid-template-spacing-05: 3.75rem;
+	--grid-template-spacing-06: 4.375rem;
+}
+
+@media screen and (min-width: 64rem) {
+	:root {
+		--grid-spacing-01: 3rem;
+		--grid-spacing-02: 4rem;
+		--grid-spacing-03: 6.5rem;
+		--grid-spacing-04: 9rem;
+		--grid-spacing-05: 12.5rem;
+		--grid-spacing-06: 16.5rem;
+		--grid-template-spacing-01: 3rem;
+		--grid-template-spacing-02: 4.5rem;
+		--grid-template-spacing-03: 6rem;
+		--grid-template-spacing-04: 7.5rem;
+		--grid-template-spacing-05: 9rem;
+		--grid-template-spacing-06: 10.5rem;
+	}
+}
+
+@media screen and (min-width: 100rem) {
+	:root {
+		--grid-spacing-01: 4rem;
+		--grid-spacing-02: 5.5rem;
+		--grid-spacing-03: 8.5rem;
+		--grid-spacing-04: 11rem;
+		--grid-spacing-05: 15.5rem;
+		--grid-spacing-06: 21rem;
+	}
+}
+
+@media screen and (min-width: 120rem) {
+	:root {
+		--grid-spacing-01: 5.5rem;
+		--grid-spacing-02: 6.5rem;
+		--grid-spacing-03: 10rem;
+		--grid-spacing-04: 13.5rem;
+		--grid-spacing-05: 18.75rem;
+		--grid-spacing-06: 25rem;
+		--grid-template-spacing-01: 5.5rem;
+		--grid-template-spacing-02: 8.25rem;
+		--grid-template-spacing-03: 11rem;
+		--grid-template-spacing-04: 13.75rem;
+		--grid-template-spacing-05: 16.5rem;
+		--grid-template-spacing-06: 19.25rem;
+	}
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  line-height: 1;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Helvetica, Arial, sans-serif;
+  color: var(--color-content-high);
+  background: var(--color-background-base);
+  font-family: var(--font-family-main);
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption,
+th,
+td {
+	font-weight: inherit;
+	text-align: left;
+	vertical-align: middle;
+}
+
+button {
+	/* stylelint-disable-next-line property-no-vendor-prefix */
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	border: none;
+	border-radius: 0;
+	color: inherit;
+	cursor: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill {
+	/* stylelint-disable property-no-vendor-prefix */
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: form-input-autofill-webkit-hack;
+	box-shadow: 0 0 0 62.5rem var(--color-main-000) inset;
+	/* stylelint-disable-next-line declaration-no-important */
+	-webkit-text-fill-color: var(--color-main) !important;
+	/* stylelint-enable property-no-vendor-prefix */
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	min-height: inherit;
+}
+
+body.disable-scroll {
+	overflow: hidden;
+}
+
+:root {
+	--grid-columns: 4;
+	--grid-column-gutter: 0.5rem;
+	--grid-column-width: calc((100% - var(--grid-column-gutter) * 3 - var(--grid-lateral-margin) * 2) / 4);
+	--grid-lateral-margin: 1.25rem;
+	--grid-width: calc(100vw - var(--layout-lateral-margin) * 2);
+	--layout-lateral-margin: var(--spacing-05);
+}
+
+@media screen and (min-width: 48rem) {
+	:root {
+		--grid-columns: 12;
+		--grid-column-gutter: 1.25rem;
+		--grid-column-width: calc((100% - var(--grid-column-gutter) * 11) / 12);
+		--margined-grid-column-width: calc((var(--grid-width) - var(--grid-column-gutter) * 11) / 12);
+		--layout-lateral-margin: var(--spacing-09);
+	}
+}
+
+@media screen and (min-width: 80rem) {
+	:root {
+		--layout-lateral-margin: var(--spacing-15);
+	}
+}
+
+.theme .theme--base {
+	color: var(--color-content-high);
+	fill: var(--color-content-high);
+	font-family: var(--font-family-main);
+	font-size: var(--font-size-body-l);
+	height: 100%;
+	line-height: 1.231;
+	letter-spacing: var(--letter-spacing-body-l);
+	font-stretch: var(--font-stretch-body-l);
+	font-weight: var(--font-weight-body-l);
+}
+
+/* Safari's mobile browser zooms in when an input is focused and its font size is smaller than 16px. Catalog team included this animation in their search input to solve that problem */
+@keyframes focus-input-in {
+	0%,
+	50% {
+		font-size: var(--font-size-title-l);
+		opacity: 0;
+		line-height: var(--line-height-title-l);
+		letter-spacing: var(--letter-spacing-title-l);
+		text-transform: var(--text-transform-title-l);
+		font-stretch: var(--font-stretch-title-l);
+		font-weight: var(--font-weight-title-l);
+	}
+
+	100% {
+		font-size: var(--font-size-body-l);
+		opacity: 1;
+		line-height: var(--line-height-body-l);
+		letter-spacing: var(--letter-spacing-body-l);
+		font-stretch: var(--font-stretch-body-l);
+		font-weight: var(--font-weight-body-l);
+	}
+}
+
+:root {
+  --font-weight-light: 300;
+  --font-weight-regular: normal;
+  --font-weight-medium: 500;
+  --font-weight-bold: bold;
+
+  /* Body S */
+  --font-size-body-s: 0.5625rem;
+  --line-height-body-s: 1rem;
+  --letter-spacing-body-s: 0.025rem;
+  --font-weight-body-s: var(--font-weight-light);
+  --font-family-body-s: var(--font-family-main);
+
+  /* Body M */
+  --font-size-body-m: 0.6875rem;
+  --line-height-body-m: 1.125rem;
+  --letter-spacing-body-m: 0.025rem;
+  --font-weight-body-m: var(--font-weight-light);
+  --font-family-body-m: var(--font-family-main);
+
+  /* Body L */
+  --font-size-body-l: 0.8125rem;
+  --line-height-body-l: 1.25rem;
+  --letter-spacing-body-l: 0.025rem;
+  --font-weight-body-l: var(--font-weight-light);
+  --font-family-body-l: var(--font-family-main);
+
+  /* Title M */
+  --font-size-title-m: 0.8125rem;
+  --line-height-title-m: 1.25rem;
+  --letter-spacing-title-m: 0.05rem;
+  --text-transform-title-m: uppercase;
+  --font-weight-title-m: var(--font-weight-light);
+  --font-family-title-m: var(--font-family-main);
+
+  /* Title L */
+  --font-size-title-l: 1rem;
+  --line-height-title-l: 1.375rem;
+  --letter-spacing-title-l: 0.05rem;
+  --text-transform-title-l: uppercase;
+  --font-weight-title-l: var(--font-weight-light);
+  --font-family-title-l: var(--font-family-main);
+}
+
+@media screen and (min-width: 64rem) {
+  :root {
+      --font-size-title-m: 0.9375rem;
+      --font-size-title-l: 1.125rem;
+      --line-height-title-l: 1.5rem
+  }
+}
+
+@media screen and (min-width: 120rem) {
+  :root {
+      /* Body S */
+      --font-size-body-s: 0.625rem;
+      --line-height-body-s: 1.125rem;
+      --letter-spacing-body-s: 0.01875rem;
+
+      /* Body M */
+      --font-size-body-m: 0.8125rem;
+      --line-height-body-m: 1.375rem;
+      --letter-spacing-body-m: 0.01875rem;
+
+      /* Body L */
+      --font-size-body-l: 0.9375rem;
+      --line-height-body-l: 1.5rem;
+      --letter-spacing-body-l: 0.01875rem;
+
+      /* Title M */
+      --font-size-title-m: 1.125rem;
+      --line-height-title-m: 1.5rem;
+
+      /* Title L */
+      --font-size-title-l: 1.375rem;
+      --line-height-title-l: 1.75rem
+  }
 }
