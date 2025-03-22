@@ -6,7 +6,14 @@ import { Mobile } from '../interfaces/mobileType';
 
 const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
 
-export const ProductsProvider = ({ children }: { children: ReactNode }) => {
+export const ProductsProvider = ({
+  children,
+  initialMobiles = [],
+}: {
+  children: ReactNode;
+  initialMobiles?: Mobile[];
+}) => {
+  const [mobiles, setMobiles] = useState<Mobile[]>(initialMobiles);
   const [cart, setCart] = useState<Mobile[]>([]);
 
   const addToCart = (mobile: Mobile) => {
@@ -18,7 +25,7 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ProductsContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <ProductsContext.Provider value={{ mobiles, setMobiles, cart, addToCart, removeFromCart }}>
       {children}
     </ProductsContext.Provider>
   );

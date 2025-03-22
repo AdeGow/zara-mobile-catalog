@@ -32,6 +32,7 @@ export type Mobile = {
   id: string;
   brand: string;
   name: string;
+  imageUrl: string;
   description: string;
   basePrice: number;
   rating: number;
