@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { SearchInputWrapper, SearchInput } from '../styles/searchProductBarStyles';
+import { SearchInputWrapper, SearchInput, SearchResultsCount } from '../styles/searchProductBarStyles';
 import { useProducts } from '../context/ProductsContext';
 
 export default function SearchProductBar() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { searchMobiles } = useProducts();
+  const { searchMobiles, searchedMobiles } = useProducts();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -46,6 +46,11 @@ export default function SearchProductBar() {
           onClick={handleClearInput}
         />
       )}
+      <SearchResultsCount>
+        {searchedMobiles &&
+          <p>{searchedMobiles.length > 1 ? `${searchedMobiles.length} results` : `${searchedMobiles.length} result`}</p>
+        }
+      </SearchResultsCount>
     </SearchInputWrapper>
   );
 }
