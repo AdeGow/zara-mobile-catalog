@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { SearchInputWrapper, SearchInput, SearchResultsCount } from '../styles/searchProductBarStyles';
+import {
+  SearchInputWrapper,
+  SearchInput,
+  SearchResultsCount,
+} from '../styles/searchProductBarStyles';
 import { useProducts } from '../context/ProductsContext';
 
 export default function SearchProductBar() {
@@ -47,9 +51,13 @@ export default function SearchProductBar() {
         />
       )}
       <SearchResultsCount>
-        {searchedMobiles &&
-          <p>{searchedMobiles.length > 1 ? `${searchedMobiles.length} results` : `${searchedMobiles.length} result`}</p>
-        }
+        {searchedMobiles && (
+          <p>
+            {searchedMobiles.length > 1
+              ? `${searchedMobiles.length} results`
+              : `${searchedMobiles.length} result`}
+          </p>
+        )}
       </SearchResultsCount>
     </SearchInputWrapper>
   );
