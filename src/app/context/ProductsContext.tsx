@@ -14,29 +14,42 @@ export const ProductsProvider = ({
   children: ReactNode;
   initialMobiles?: Mobile[];
 }) => {
-  const [mobiles, setMobiles] = useState<Mobile[]>(initialMobiles);
+  const [mobiles] = useState<Mobile[]>(initialMobiles);
+  const [searchedMobiles, setSearchedMobiles] = useState<Mobile[] | null>(null);
   const [cart, setCart] = useState<Mobile[]>([]);
 
-  const addToCart = (mobile: Mobile) => {
-    setCart((prev) => [...prev, mobile]);
-  };
+  const addToCart = (mobile: Mobile) => setCart((prev) => [...prev, mobile]);
 
-  const removeFromCart = (id: string) => {
+  const removeFromCart = (id: string) =>
     setCart((prev) => prev.filter((item) => item.id !== id));
-  };
 
   const searchMobiles = async (query: string) => {
+    // Reset to initialMobiles if empty query
+    if (query.trim() === '') {
+      setSearchedMobiles(null);
+      return;
+    }
+
     try {
       const response = await API.get(`/products?search=${query}&limit=20`);
-      setMobiles(response.data);
+      setSearchedMobiles(response.data);
     } catch (error) {
-      console.error('Error fetching mobiles:', error);
-      setMobiles([]);
+      console.error('Error searching mobiles:', error);
+      setSearchedMobiles([]);
     }
   };
 
   return (
-    <ProductsContext.Provider value={{ mobiles, setMobiles, searchMobiles, cart, addToCart, removeFromCart }}>
+    <ProductsContext.Provider
+      value={{
+        mobiles,
+        searchedMobiles,
+        searchMobiles,
+        cart,
+        addToCart,
+        removeFromCart,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );

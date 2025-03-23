@@ -6,11 +6,12 @@ import { Mobile } from '../interfaces/mobileType';
 import { MobilesGridWrapper } from '../styles/mobilesGridStyles';
 
 export default function MobilesGrid() {
-  const { mobiles } = useProducts();
+  const { mobiles, searchedMobiles } = useProducts();
+  const displayMobiles = searchedMobiles ?? mobiles;
 
   return (
     <MobilesGridWrapper>
-      {mobiles.map((mobile: Mobile) => (
+      {displayMobiles.map((mobile) => (
         <MobileCard key={mobile.id} mobile={mobile} />
       ))}
     </MobilesGridWrapper>

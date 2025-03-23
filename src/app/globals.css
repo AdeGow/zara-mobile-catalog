@@ -190,6 +190,9 @@ td {
 	vertical-align: middle;
 }
 
+input,
+textarea,
+select,
 button {
 	/* stylelint-disable-next-line property-no-vendor-prefix */
 	-webkit-appearance: none;
@@ -216,6 +219,29 @@ select:-webkit-autofill {
 	/* stylelint-disable-next-line declaration-no-important */
 	-webkit-text-fill-color: var(--color-main) !important;
 	/* stylelint-enable property-no-vendor-prefix */
+}
+
+/* Safari's mobile browser zooms in when an input is focused and its font size is smaller than 16px. Catalog team included this animation in their search input to solve that problem */
+@keyframes focus-input-in {
+	0%,
+	50% {
+		font-size: var(--font-size-title-l);
+		opacity: 0;
+		line-height: var(--line-height-title-l);
+		letter-spacing: var(--letter-spacing-title-l);
+		text-transform: var(--text-transform-title-l);
+		font-stretch: var(--font-stretch-title-l);
+		font-weight: var(--font-weight-title-l);
+	}
+
+	100% {
+		font-size: var(--font-size-body-l);
+		opacity: 1;
+		line-height: var(--line-height-body-l);
+		letter-spacing: var(--letter-spacing-body-l);
+		font-stretch: var(--font-stretch-body-l);
+		font-weight: var(--font-weight-body-l);
+	}
 }
 
 a {
@@ -258,29 +284,6 @@ a {
 	letter-spacing: var(--letter-spacing-body-l);
 	font-stretch: var(--font-stretch-body-l);
 	font-weight: var(--font-weight-body-l);
-}
-
-/* Safari's mobile browser zooms in when an input is focused and its font size is smaller than 16px. Catalog team included this animation in their search input to solve that problem */
-@keyframes focus-input-in {
-	0%,
-	50% {
-		font-size: var(--font-size-title-l);
-		opacity: 0;
-		line-height: var(--line-height-title-l);
-		letter-spacing: var(--letter-spacing-title-l);
-		text-transform: var(--text-transform-title-l);
-		font-stretch: var(--font-stretch-title-l);
-		font-weight: var(--font-weight-title-l);
-	}
-
-	100% {
-		font-size: var(--font-size-body-l);
-		opacity: 1;
-		line-height: var(--line-height-body-l);
-		letter-spacing: var(--letter-spacing-body-l);
-		font-stretch: var(--font-stretch-body-l);
-		font-weight: var(--font-weight-body-l);
-	}
 }
 
 :root {
@@ -334,7 +337,7 @@ a {
   --font-family-label-s: var(--font-family-main);
 
   /* Label M */
-  --font-size-label-m: 0.6875rem;
+  --font-size-label-m: 0.8rem;
   --line-height-label-m: 1rem;
   --letter-spacing-label-m: 0.05rem;
   --text-transform-label-m: uppercase;

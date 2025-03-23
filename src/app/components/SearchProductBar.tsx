@@ -1,11 +1,12 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
-import { SearchInputWrapper, SearchInput } from '../styles/searchProductBarStyles'
+import Image from 'next/image';
+import { SearchInputWrapper, SearchInput } from '../styles/searchProductBarStyles';
 import { useProducts } from '../context/ProductsContext';
 
 export default function SearchProductBar() {
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState('');
   const { searchMobiles } = useProducts();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,9 +14,16 @@ export default function SearchProductBar() {
     setSearchQuery(value);
   };
 
+  const handleClearInput = () => {
+    setSearchQuery('');
+    searchMobiles('');
+  };
+
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      searchMobiles(searchQuery);
+      if (searchQuery.trim().length > 0) {
+        searchMobiles(searchQuery);
+      }
     }, 300);
 
     return () => clearTimeout(delayDebounce);
@@ -29,6 +37,15 @@ export default function SearchProductBar() {
         value={searchQuery}
         onChange={handleInputChange}
       />
+      {searchQuery.length > 0 && (
+        <Image
+          src="/assets/close.svg"
+          alt="Clear search"
+          width={20}
+          height={20}
+          onClick={handleClearInput}
+        />
+      )}
     </SearchInputWrapper>
   );
 }
