@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <NavbarWrapper>
       <NavItem>
-        <Link href="/">
+        <Link href="/mobiles">
           <Image
             src="/assets/logo.svg"
             alt="MBST logo"
@@ -22,7 +22,7 @@ export default function Navbar() {
         </Link>
       </NavItem>
       <NavItem>
-        <Link href="/" className="navbar-cart-wrapper">
+        <Link href="/cart" className="navbar-cart-wrapper">
           <Image
             src="/assets/cart.svg"
             alt="Shopping cart icon"
