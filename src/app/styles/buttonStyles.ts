@@ -24,7 +24,9 @@ const variantStyles: Record<ButtonVariant, { background: string; color: string; 
     },
   };
 
-export const StyledButton = styled.button<StyledButtonProps>`
+export const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== 'variant',
+})<StyledButtonProps>`
   display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
