@@ -39,7 +39,6 @@ export const StyledButton = styled.button.withConfig({
   height: 2.5rem;
   max-width: 100%;
   min-width: 10.375rem;
-  overflow: hidden;
   padding-left: var(--spacing-03);
   padding-right: var(--spacing-03);
   text-decoration: none;

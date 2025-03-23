@@ -147,7 +147,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   line-height: 1;
 }
 
@@ -155,11 +154,16 @@ body {
   box-sizing: border-box;
 }
 
+html {
+	min-height: 100%;
+}
+
 body {
+  margin: 0 var(--layout-lateral-margin);
   color: var(--color-content-high);
   background: var(--color-background-base);
   font-family: var(--font-family-main);
-  font-weight: 500;
+  font-weight: var(--font-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -217,25 +221,6 @@ select:-webkit-autofill {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-html {
-	min-height: 100%;
-}
-
-body {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	min-height: inherit;
-  overflow-x: hidden;
-  background-color: var(--color-background-base);
-  width: 100%;
-  max-width: var(--grid-width);
-  margin: var(--spacing-07) var(--layout-lateral-margin);
-}
-
-body.disable-scroll {
-	overflow: hidden;
 }
 
 :root {
