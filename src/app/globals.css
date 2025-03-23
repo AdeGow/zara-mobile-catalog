@@ -4,25 +4,23 @@
 
   /* Background */
   --color-background-base: var(--color-basic-white);
-  --color-background-contrast: var(--color-basic-white);
+  --color-background-disabled: #F3F2F2;
+  --color-background-contrast: var(--color-basic-black);
 
   /* Content */
   --color-content-high: var(--color-basic-black);
   --color-content-mid: #79736D;
   --color-content-low: #AAAAAA;
+  --color-content-disabled: #C2BFBC;
   --color-content-inverse: var(--color-basic-white);
 
   /* Special text */
   --color-semantic-danger-high: #DF0000;
   --color-text-placeholder: var(--color-content-low);
-  --color-text-disabled: #C2BFBC;
 
   /* Borders */
   --color-border-primary: var(--color-basic-black);
   --color-border-secondary: #CCCCCC;
-
-  /* Buttons */
-  --color-btn-disabled: #F3F2F2;
 
   /* Fonts */
   --font-family-main: 'Helvetica', 'Arial', Sans-Serif;
@@ -86,6 +84,64 @@
 		--grid-template-spacing-05: 16.5rem;
 		--grid-template-spacing-06: 19.25rem;
 	}
+}
+
+:root {
+  --spacing-00: 0.125rem;
+  --spacing-01: 0.25rem;
+  --spacing-02: 0.5rem;
+  --spacing-03: 0.75rem;
+  --spacing-04: 1rem;
+  --spacing-05: 1.25rem;
+  --spacing-06: 1.5rem;
+  --spacing-07: 2rem;
+  --spacing-08: 2.5rem;
+  --spacing-09: 3rem;
+  --spacing-10: 3.5rem;
+  --spacing-11: 4rem;
+  --spacing-12: 4.5rem;
+  --spacing-13: 5rem;
+  --spacing-14: 6rem;
+  --spacing-15: 7rem;
+  --spacing-16: 7.5rem
+}
+
+@media screen and (min-width: 120rem) {
+  :root {
+      --spacing-00: 0.25rem;
+      --spacing-01: 0.5rem;
+      --spacing-02: 0.75rem;
+      --spacing-03: 1rem;
+      --spacing-04: 1.25rem;
+      --spacing-05: 1.5rem;
+      --spacing-06: 2rem;
+      --spacing-07: 2.5rem;
+      --spacing-08: 3rem;
+      --spacing-09: 3.5rem;
+      --spacing-10: 4rem;
+      --spacing-11: 4.5rem;
+      --spacing-12: 5rem;
+      --spacing-13: 6rem;
+      --spacing-14: 7rem;
+      --spacing-15: 7.5rem;
+      --spacing-16: 10rem
+  }
+}
+
+:root {
+  --zds-line-width: 0.0625rem
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2),screen and (min-resolution: 2dppx) {
+  :root {
+      --zds-line-width: 0.03125rem
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3),(min-resolution: 3dppx) {
+  :root {
+      --zds-line-width: 0.0425rem
+  }
 }
 
 html,
@@ -171,6 +227,11 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	min-height: inherit;
+  overflow-x: hidden;
+  background-color: var(--color-background-base);
+  width: 100%;
+  max-width: var(--grid-width);
+  margin: var(--spacing-07) var(--layout-lateral-margin);
 }
 
 body.disable-scroll {
@@ -238,6 +299,8 @@ body.disable-scroll {
 }
 
 :root {
+  --font-stretch-normal: normal;
+  --font-stretch-condensed: condensed;
   --font-weight-light: 300;
   --font-weight-regular: normal;
   --font-weight-medium: 500;
@@ -247,6 +310,7 @@ body.disable-scroll {
   --font-size-body-s: 0.5625rem;
   --line-height-body-s: 1rem;
   --letter-spacing-body-s: 0.025rem;
+  --font-stretch-body-s: var(--font-stretch-normal);
   --font-weight-body-s: var(--font-weight-light);
   --font-family-body-s: var(--font-family-main);
 
@@ -254,6 +318,7 @@ body.disable-scroll {
   --font-size-body-m: 0.6875rem;
   --line-height-body-m: 1.125rem;
   --letter-spacing-body-m: 0.025rem;
+  --font-stretch-body-m: var(--font-stretch-normal);
   --font-weight-body-m: var(--font-weight-light);
   --font-family-body-m: var(--font-family-main);
 
@@ -261,14 +326,70 @@ body.disable-scroll {
   --font-size-body-l: 0.8125rem;
   --line-height-body-l: 1.25rem;
   --letter-spacing-body-l: 0.025rem;
+  --font-stretch-body-l: var(--font-stretch-normal);
   --font-weight-body-l: var(--font-weight-light);
   --font-family-body-l: var(--font-family-main);
+
+  /* Label XS */
+  --font-size-label-xs: 0.5rem;
+  --line-height-label-xs: 0.75rem;
+  --letter-spacing-label-xs: 0.05rem;
+  --text-transform-label-xs: uppercase;
+  --font-stretch-label-xs: var(--font-stretch-normal);
+  --font-weight-label-xs: var(--font-weight-light);
+  --font-family-label-xs: var(--font-family-main);
+
+  /* Label S */
+  --font-size-label-s: 0.625rem;
+  --line-height-label-s: 1rem;
+  --letter-spacing-label-s: 0.05rem;
+  --text-transform-label-s: uppercase;
+  --font-stretch-label-s: var(--font-stretch-normal);
+  --font-weight-label-s: var(--font-weight-light);
+  --font-family-label-s: var(--font-family-main);
+
+  /* Label M */
+  --font-size-label-m: 0.6875rem;
+  --line-height-label-m: 1rem;
+  --letter-spacing-label-m: 0.05rem;
+  --text-transform-label-m: uppercase;
+  --font-stretch-label-m: var(--font-stretch-normal);
+  --font-weight-label-m: var(--font-weight-light);
+  --font-family-label-m: var(--font-family-main);
+
+  /* Label XS Highlight */
+  --font-size-label-xs-highlight: 0.5rem;
+  --line-height-label-xs-highlight: 0.75rem;
+  --letter-spacing-label-xs-highlight: 0.05rem;
+  --text-transform-label-xs-highlight: uppercase;
+  --font-stretch-label-xs-highlight: var(--font-stretch-normal);
+  --font-weight-label-xs-highlight: var(--font-weight-medium);
+  --font-family-label-xs-highlight: var(--font-family-main);
+
+  /* Label S Highlight */
+  --font-size-label-s-highlight: 0.625rem;
+  --line-height-label-s-highlight: 1rem;
+  --letter-spacing-label-s-highlight: 0.05rem;
+  --text-transform-label-s-highlight: uppercase;
+  --font-stretch-label-s-highlight: var(--font-stretch-normal);
+  --font-weight-label-s-highlight: var(--font-weight-medium);
+  --font-family-label-s-highlight: var(--font-family-main);
+
+  /* Label M Highlight */
+  --font-size-label-m-highlight: 0.6875rem;
+  --line-height-label-m-highlight: 1rem;
+  --letter-spacing-label-m-highlight: 0.05rem;
+  --text-transform-label-m-highlight: uppercase;
+  --font-stretch-label-m-highlight: var(--font-stretch-normal);
+  --font-weight-label-m-highlight: var(--font-weight-medium);
+  --font-family-label-m-highlight: var(--font-family-main);
 
   /* Title M */
   --font-size-title-m: 0.8125rem;
   --line-height-title-m: 1.25rem;
   --letter-spacing-title-m: 0.05rem;
   --text-transform-title-m: uppercase;
+  --font-stretch-title-m: var(--font-stretch-normal);
   --font-weight-title-m: var(--font-weight-light);
   --font-family-title-m: var(--font-family-main);
 
@@ -277,8 +398,9 @@ body.disable-scroll {
   --line-height-title-l: 1.375rem;
   --letter-spacing-title-l: 0.05rem;
   --text-transform-title-l: uppercase;
+  --font-stretch-title-l: var(--font-stretch-normal);
   --font-weight-title-l: var(--font-weight-light);
-  --font-family-title-l: var(--font-family-main);
+  --font-family-title-l: var(--font-family-main)
 }
 
 @media screen and (min-width: 64rem) {
@@ -291,26 +413,29 @@ body.disable-scroll {
 
 @media screen and (min-width: 120rem) {
   :root {
-      /* Body S */
       --font-size-body-s: 0.625rem;
       --line-height-body-s: 1.125rem;
       --letter-spacing-body-s: 0.01875rem;
-
-      /* Body M */
       --font-size-body-m: 0.8125rem;
       --line-height-body-m: 1.375rem;
       --letter-spacing-body-m: 0.01875rem;
-
-      /* Body L */
       --font-size-body-l: 0.9375rem;
       --line-height-body-l: 1.5rem;
       --letter-spacing-body-l: 0.01875rem;
-
-      /* Title M */
+      --font-size-label-xs: 0.625rem;
+      --line-height-label-xs: 1rem;
+      --font-size-label-s: 0.75rem;
+      --line-height-label-s: 1.25rem;
+      --font-size-label-m: 0.8125rem;
+      --line-height-label-m: 1.25rem;
+      --font-size-label-xs-highlight: 0.625rem;
+      --line-height-label-xs-highlight: 1rem;
+      --font-size-label-s-highlight: 0.75rem;
+      --line-height-label-s-highlight: 1.25rem;
+      --font-size-label-m-highlight: 0.8125rem;
+      --line-height-label-m-highlight: 1.25rem;
       --font-size-title-m: 1.125rem;
       --line-height-title-m: 1.5rem;
-
-      /* Title L */
       --font-size-title-l: 1.375rem;
       --line-height-title-l: 1.75rem
   }
