@@ -1,5 +1,6 @@
 'use client';
 
+import { API } from '../../lib/api';
 import { createContext, useState, useContext, ReactNode } from 'react';
 import { ProductsContextType } from '../interfaces/productsContextType';
 import { Mobile } from '../interfaces/mobileType';
@@ -24,8 +25,18 @@ export const ProductsProvider = ({
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const searchMobiles = async (query: string) => {
+    try {
+      const response = await API.get(`/products?search=${query}&limit=20`);
+      setMobiles(response.data);
+    } catch (error) {
+      console.error('Error fetching mobiles:', error);
+      setMobiles([]);
+    }
+  };
+
   return (
-    <ProductsContext.Provider value={{ mobiles, setMobiles, cart, addToCart, removeFromCart }}>
+    <ProductsContext.Provider value={{ mobiles, setMobiles, searchMobiles, cart, addToCart, removeFromCart }}>
       {children}
     </ProductsContext.Provider>
   );
