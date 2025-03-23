@@ -11,7 +11,7 @@ import { useProducts } from '../context/ProductsContext';
 
 export default function SearchProductBar() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { searchMobiles, searchedMobiles } = useProducts();
+  const { mobiles, searchMobiles, searchedMobiles } = useProducts();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -51,12 +51,14 @@ export default function SearchProductBar() {
         />
       )}
       <SearchResultsCount>
-        {searchedMobiles && (
+        {searchedMobiles ? (
           <p>
             {searchedMobiles.length > 1
               ? `${searchedMobiles.length} results`
               : `${searchedMobiles.length} result`}
           </p>
+        ) : (
+          <p>{mobiles.length > 1 ? `${mobiles.length} results` : `${mobiles.length} result`}</p>
         )}
       </SearchResultsCount>
     </SearchInputWrapper>

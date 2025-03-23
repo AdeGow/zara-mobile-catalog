@@ -1,7 +1,7 @@
 'use client';
 
 import { API } from '../../lib/api';
-import { createContext, useState, useContext, ReactNode } from 'react';
+import { createContext, useState, useContext, useRef, ReactNode } from 'react';
 import { ProductsContextType } from '../interfaces/productsContextType';
 import { Mobile } from '../interfaces/mobileType';
 
@@ -19,35 +19,53 @@ export const ProductsProvider = ({
   const [cart, setCart] = useState<Mobile[]>([]);
   const [lastQuery, setLastQuery] = useState<string>('');
 
-  const addToCart = (mobile: Mobile) => setCart((prev) => [...prev, mobile]);
-
-  const removeFromCart = (id: string) => setCart((prev) => prev.filter((item) => item.id !== id));
+  const searchCache = useRef<Map<string, Mobile[]>>(new Map());
 
   const searchMobiles = async (query: string) => {
     const trimmedQuery = query.trim();
+    console.log('SearchMobile with query as:', query, 'last query is', lastQuery);
 
+    // Reset if empty query
     if (trimmedQuery === '') {
+      console.log('Query empty, reset data');
       setSearchedMobiles(null);
       setLastQuery('');
       return;
     }
 
+    // Skip API call if same query
     if (trimmedQuery === lastQuery) {
-      // Skip API call if same query
+      console.log('Same query, skipping fetch data');
       return;
     }
 
+    // Check cache first
+    if (searchCache.current.has(trimmedQuery)) {
+      console.log('Using cached data');
+      setSearchedMobiles(searchCache.current.get(trimmedQuery)!);
+      setLastQuery(trimmedQuery);
+      return;
+    }
+
+    // If not cached: fetch from API
     try {
+      console.log('Data not cached, fetching data from API');
       const response = await API.get(`/products?search=${trimmedQuery}&limit=20`);
       setSearchedMobiles(response.data);
-      // Cache last query
       setLastQuery(trimmedQuery);
+
+      // Store in cache
+      searchCache.current.set(trimmedQuery, response.data);
     } catch (error) {
       console.error('Error searching mobiles:', error);
       setSearchedMobiles([]);
-      setLastQuery(trimmedQuery); // Still update to prevent retry loop
+      setLastQuery(trimmedQuery);
     }
   };
+
+  const addToCart = (mobile: Mobile) => setCart((prev) => [...prev, mobile]);
+
+  const removeFromCart = (id: string) => setCart((prev) => prev.filter((item) => item.id !== id));
 
   return (
     <ProductsContext.Provider
