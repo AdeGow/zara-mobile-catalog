@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import StyledComponentsRegistry from '../lib/registry';
 
 export const metadata: Metadata = {
   title: 'Zara Mobile Catalog | Buy Apple and Samsung smartphones',
@@ -15,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
