@@ -4,7 +4,6 @@ export const MobileCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: o auto;
   padding: 1rem;
   margin: 0;
   box-sizing: border-box;
