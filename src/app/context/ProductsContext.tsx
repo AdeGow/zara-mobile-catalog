@@ -4,6 +4,7 @@ import { API } from '../../lib/api';
 import { createContext, useState, useContext, useRef, ReactNode } from 'react';
 import { ProductsContextType } from '../interfaces/productsContextType';
 import { Mobile } from '../interfaces/mobileType';
+import { deduplicateMobiles } from '../utils/deduplicateMobiles';
 
 const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
 
@@ -14,7 +15,7 @@ export const ProductsProvider = ({
   children: ReactNode;
   initialMobiles?: Mobile[];
 }) => {
-  const [mobiles] = useState<Mobile[]>(initialMobiles);
+  const [mobiles] = useState<Mobile[]>(deduplicateMobiles(initialMobiles));
   const [searchedMobiles, setSearchedMobiles] = useState<Mobile[] | null>(null);
   const [cart, setCart] = useState<Mobile[]>([]);
   const [lastQuery, setLastQuery] = useState<string>('');
@@ -41,8 +42,11 @@ export const ProductsProvider = ({
 
     // Check cache first
     if (searchCache.current.has(trimmedQuery)) {
+      console.log('SearchMobile with query as:', query, 'last query is', lastQuery);
       console.log('Using cached data');
-      setSearchedMobiles(searchCache.current.get(trimmedQuery)!);
+      const cachedMobiles = searchCache.current.get(trimmedQuery);
+      const deduplicatedMobiles = deduplicateMobiles(cachedMobiles || []);
+      setSearchedMobiles(deduplicatedMobiles);
       setLastQuery(trimmedQuery);
       return;
     }
@@ -51,11 +55,11 @@ export const ProductsProvider = ({
     try {
       console.log('Data not cached, fetching data from API');
       const response = await API.get(`/products?search=${trimmedQuery}&limit=20`);
-      setSearchedMobiles(response.data);
-      setLastQuery(trimmedQuery);
+      const deduplicatedMobiles = deduplicateMobiles(response.data);
 
+      setSearchedMobiles(deduplicatedMobiles);
       // Store in cache
-      searchCache.current.set(trimmedQuery, response.data);
+      searchCache.current.set(trimmedQuery, deduplicatedMobiles);
     } catch (error) {
       console.error('Error searching mobiles:', error);
       setSearchedMobiles([]);
