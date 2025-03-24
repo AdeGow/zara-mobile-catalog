@@ -4,9 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useProducts } from '../context/ProductsContext';
 import { NavbarWrapper, NavItem } from '../styles/navbarStyles';
+import { useHasMounted } from '../hooks/useHasMounted';
 
 export default function Navbar() {
+  const hasMounted = useHasMounted();
   const { cart } = useProducts();
+
   return (
     <NavbarWrapper>
       <NavItem>
@@ -31,7 +34,7 @@ export default function Navbar() {
             width={200}
             height={200}
           />
-          <span>{cart.length}</span>
+          <span>{hasMounted ? cart.length : '0'}</span>
         </Link>
       </NavItem>
     </NavbarWrapper>
