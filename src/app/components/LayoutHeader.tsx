@@ -7,11 +7,12 @@ import { LayoutHeaderWrapper } from '../styles/layoutHeaderStyles';
 
 export default function LayoutHeader() {
   const path = usePathname();
+  const isDetailPage = /^\/mobiles\/[^/]+$/.test(path);
 
   return (
     <LayoutHeaderWrapper>
       <Navbar />
-      {path !== '/mobiles/[mobileId]' && <SearchProductBar />}
+      {!isDetailPage && <SearchProductBar />}
     </LayoutHeaderWrapper>
   );
 }
