@@ -21,7 +21,6 @@ export default async function MobileDetailPage({ params }: MobilePageProps) {
         width={300}
         height={400}
       />
-      {/* Add storage/color selectors, "Add to Cart", etc. */}
     </main>
   );
 }

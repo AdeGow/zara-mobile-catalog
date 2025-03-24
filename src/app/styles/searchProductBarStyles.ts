@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SearchInputWrapper = styled.div`
   display: flex;
@@ -39,4 +39,4 @@ export const SearchResultsCount = styled.div`
   font-family: var(--font-family-body-m)
   line-height: var(--line-height-body-m);
   text-transform: var(--text-transform-label-m);
-`
+`;

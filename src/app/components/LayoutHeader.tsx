@@ -7,8 +7,8 @@ import { LayoutHeaderWrapper } from '../styles/layoutHeaderStyles';
 export default function LayoutHeader() {
   return (
     <LayoutHeaderWrapper>
-      <Navbar/>
-      <SearchProductBar/>
+      <Navbar />
+      <SearchProductBar />
     </LayoutHeaderWrapper>
   );
 }
