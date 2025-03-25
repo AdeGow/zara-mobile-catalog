@@ -8,19 +8,22 @@ export const MobileCardWrapper = styled.a`
   width: 100%;
   height: 344px;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 0.7rem;
   margin: 0;
+  border-bottom: 0.5px solid var(--color-border-primary);
+  border-right: 0.5px solid var(--color-border-primary);
 
   @media (min-width: 700px) {
     height: 377px;
   }
 
-  @media (min-width: 700px) {
-    height: 344px;
+  @media (min-width: 1000px) {
+    height: 275px;
   }
 
-  border-bottom: 0.5px solid var(--color-border-primary);
-  border-right: 0.5px solid var(--color-border-primary);
+  @media (min-width: 1200px) {
+    height: 344px;
+  }
 `;
 
 export const CardImageWrapper = styled.div`
@@ -29,7 +32,7 @@ export const CardImageWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
   width: 100%;
-  height: 75%;
+  height: 90%;
   position: relative;
 
   .mobile-card-img {
@@ -46,7 +49,61 @@ export const CardInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0;
   margin: 0;
   width: 100%;
-  height: 25%;
+  height: 10%;
+`;
+
+export const MobileInfoRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 50%;
+
+  text-align: left;
+  font-size: var(--font-size-body-m);
+  font-weight: var(--font-weight-label-m);
+  font-family: var(--font-family-body-m);
+  letter-spacing: var(--letter-spacing-body-s);
+  line-height: 0;
+  text-transform: var(--text-transform-label-m);
+
+  .mobile-card-brand {
+    color: var(--color-content-mid);
+    font-size: var(--font-size-body-s);
+  }
+
+  @media (min-width: 700px and max-width 100px) {
+    font-size: var(--font-size-body-m);
+    font-weight: var(--font-weight-label-m);
+
+    .mobile-card-brand {
+      font-size: var(--font-size-label-s);
+      margin: 0;
+    }
+  }
+`;
+
+export const MobileName = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  flex-grow: 1;
+  height: 100%;
+`;
+
+export const MobilePrice = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+  text-align: right;
 `;

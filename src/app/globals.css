@@ -264,13 +264,13 @@ a {
 		--grid-column-gutter: 1.25rem;
 		--grid-column-width: calc((100% - var(--grid-column-gutter) * 11) / 12);
 		--margined-grid-column-width: calc((var(--grid-width) - var(--grid-column-gutter) * 11) / 12);
-		--layout-lateral-margin: var(--spacing-09);
+		--layout-lateral-margin: var(--spacing-08);
 	}
 }
 
 @media screen and (min-width: 80rem) {
 	:root {
-		--layout-lateral-margin: var(--spacing-15);
+		--layout-lateral-margin: var(--spacing-13);
 	}
 }
 

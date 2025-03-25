@@ -3,7 +3,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MobileCardProps } from '../interfaces/MobileCardProps';
-import { MobileCardWrapper, CardImageWrapper, CardInfoWrapper } from '../styles/mobileCardStyles';
+import {
+  MobileCardWrapper,
+  CardImageWrapper,
+  CardInfoWrapper,
+  MobileInfoRow,
+  MobileName,
+  MobilePrice,
+} from '../styles/mobileCardStyles';
 
 export default function Mobile({ mobile }: MobileCardProps) {
   return (
@@ -17,9 +24,13 @@ export default function Mobile({ mobile }: MobileCardProps) {
         />
       </CardImageWrapper>
       <CardInfoWrapper>
-        <div className="">{mobile.brand}</div>
-        <div className="">{mobile.name}</div>
-        <div className="">€{mobile.basePrice.toFixed(2)}</div>
+        <MobileInfoRow>
+          <p className="mobile-card-brand">{mobile.brand}</p>
+        </MobileInfoRow>
+        <MobileInfoRow>
+          <MobileName>{mobile.name}</MobileName>
+          <MobilePrice>{mobile.basePrice.toFixed(0)} EUR</MobilePrice>
+        </MobileInfoRow>
       </CardInfoWrapper>
     </MobileCardWrapper>
   );
