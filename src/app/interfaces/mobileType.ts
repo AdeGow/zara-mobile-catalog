@@ -33,11 +33,11 @@ export type Mobile = {
   brand: string;
   name: string;
   imageUrl: string;
-  description?: string;
-  basePrice?: number;
-  rating?: number;
-  specs?: Specs;
-  colorOptions?: ColorOption[];
-  storageOptions?: StorageOption[];
-  similarProducts?: SimilarProduct[];
+  description: string;
+  basePrice: number;
+  rating: number;
+  specs: Specs;
+  colorOptions: ColorOption[];
+  storageOptions: StorageOption[];
+  similarProducts: SimilarProduct[];
 };

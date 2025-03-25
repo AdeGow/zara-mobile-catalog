@@ -17,7 +17,16 @@ export default function MobilesGrid() {
   return (
     <MobilesGridWrapper>
       {displayMobiles.map((mobile) => (
-        <MobileCard key={mobile.id} mobile={mobile} />
+        <MobileCard
+          key={mobile.id}
+          mobile={{
+            id: mobile.id,
+            brand: mobile.brand,
+            name: mobile.name,
+            basePrice: mobile.basePrice,
+            imageUrl: mobile.imageUrl,
+          }}
+        />
       ))}
     </MobilesGridWrapper>
   );

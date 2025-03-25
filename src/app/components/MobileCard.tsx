@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
-import { MobileProps } from '../interfaces/mobileProps';
+import { MobileCardProps } from '../interfaces/mobileCardProps';
 import {
   MobileCardWrapper,
   CardImageWrapper,
@@ -12,7 +11,7 @@ import {
   MobilePrice,
 } from '../styles/mobileCardStyles';
 
-export default function Mobile({ mobile }: MobileProps) {
+export default function Mobile({ mobile }: MobileCardProps) {
   return (
     <MobileCardWrapper href={`/mobiles/${mobile.id}`}>
       <CardImageWrapper>

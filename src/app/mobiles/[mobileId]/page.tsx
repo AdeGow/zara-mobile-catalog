@@ -10,7 +10,5 @@ export default async function MobileDetailPage({ params }: MobilePageProps) {
     return notFound();
   }
 
-  return (
-    <MobileDetail mobile={mobile} />
-  );
+  return <MobileDetail mobile={mobile} />;
 }
