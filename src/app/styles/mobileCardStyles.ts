@@ -13,6 +13,27 @@ export const MobileCardWrapper = styled.a`
   border-bottom: 0.5px solid var(--color-border-primary);
   border-right: 0.5px solid var(--color-border-primary);
 
+  background-color: var(--color-background-base);
+  background-image: linear-gradient(
+    to top,
+    var(--color-background-contrast) 100%,
+    var(--color-background-base) 0%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transition: background-size, color, 1s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.1, 1);
+
+  &:hover {
+    background-size: 100% 100%;
+    color: var(--color-content-inverse);
+
+    .mobile-card-brand {
+      color: var(--color-content-inverse);
+    }
+  }
+
   @media (min-width: 700px) {
     height: 377px;
   }
@@ -75,6 +96,8 @@ export const MobileInfoRow = styled.div`
   .mobile-card-brand {
     color: var(--color-content-mid);
     font-size: var(--font-size-body-s);
+    transition: color 1s;
+    transition-timing-function: cubic-bezier(0.7, 0, 0.1, 1);
   }
 
   @media (min-width: 700px and max-width 100px) {
