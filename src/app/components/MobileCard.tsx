@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MobileCardProps } from '../interfaces/MobileCardProps';
+import { MobileCardProps } from '../interfaces/mobileCardProps';
 import {
   MobileCardWrapper,
   CardImageWrapper,

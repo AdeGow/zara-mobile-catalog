@@ -5,29 +5,47 @@ type StyledButtonProps = {
   variant?: ButtonVariant;
 };
 
-const variantStyles: Record<ButtonVariant, { background: string; color: string; border: string }> =
+const variantStyles: Record<ButtonVariant, { background: string; color: string; border: string, paddingLeft: string, paddingRight: string, justifyContent: string }> =
   {
     primary: {
       background: 'var(--color-background-contrast)',
       color: 'var(--color-content-inverse)',
       border: 'var(--zds-line-width) solid var(--color-content-high)',
+      paddingLeft: 'var(--spacing-03)',
+      paddingRight: 'var(--spacing-03)',
+      justifyContent: 'center',
     },
     secondary: {
       background: 'var(--color-background-base)',
       color: 'var(--color-content-high)',
       border: 'var(--zds-line-width) solid var(--color-content-high)',
+      paddingLeft: 'var(--spacing-03)',
+      paddingRight: 'var(--spacing-03)',
+      justifyContent: 'center',
     },
     disabled: {
       background: 'var(--color-background-disabled)',
       color: 'var(--color-content-disabled)',
       border: 'var(--zds-line-width) solid var(--color-content-high)',
+      paddingLeft: 'var(--spacing-03)',
+      paddingRight: 'var(--spacing-03)',
+      justifyContent: 'center',
     },
+    transparent: {
+      background: 'transparent',
+      color: 'var(--color-content-high)',
+      border: 'var(--zds-line-width) solid transparent',
+      paddingLeft: '0',
+      paddingRight: '0',
+      justifyContent: 'flex-start',
+    }
   };
 
 export const StyledButton = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== 'variant',
 })<StyledButtonProps>`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -39,8 +57,6 @@ export const StyledButton = styled.button.withConfig({
   height: 2.5rem;
   max-width: 100%;
   min-width: 10.375rem;
-  padding-left: var(--spacing-03);
-  padding-right: var(--spacing-03);
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -56,6 +72,9 @@ export const StyledButton = styled.button.withConfig({
   background-color: ${({ variant = 'primary' }) => variantStyles[variant].background};
   color: ${({ variant = 'primary' }) => variantStyles[variant].color};
   border: ${({ variant = 'primary' }) => variantStyles[variant].border};
+  padding-left: ${({ variant = 'primary' }) => variantStyles[variant].paddingLeft};
+  padding-right: ${({ variant = 'primary' }) => variantStyles[variant].paddingRight};
+  justify-content: ${({ variant = 'primary' }) => variantStyles[variant].justifyContent};
 
   &:disabled {
     opacity: 0.5;
