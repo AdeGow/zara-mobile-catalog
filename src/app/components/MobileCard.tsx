@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { MobileCardProps } from '../interfaces/mobileCardProps';
+import { MobileProps } from '../interfaces/mobileProps';
 import {
   MobileCardWrapper,
   CardImageWrapper,
@@ -12,7 +12,7 @@ import {
   MobilePrice,
 } from '../styles/mobileCardStyles';
 
-export default function Mobile({ mobile }: MobileCardProps) {
+export default function Mobile({ mobile }: MobileProps) {
   return (
     <MobileCardWrapper href={`/mobiles/${mobile.id}`}>
       <CardImageWrapper>
@@ -29,7 +29,7 @@ export default function Mobile({ mobile }: MobileCardProps) {
         </MobileInfoRow>
         <MobileInfoRow>
           <MobileName>{mobile.name}</MobileName>
-          <MobilePrice>{mobile.basePrice.toFixed(0)} EUR</MobilePrice>
+          <MobilePrice>{mobile.basePrice?.toFixed(0)} EUR</MobilePrice>
         </MobileInfoRow>
       </CardInfoWrapper>
     </MobileCardWrapper>

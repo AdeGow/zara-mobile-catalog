@@ -2,12 +2,22 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { MobileDetailProps } from '../interfaces/mobileDetailProps';
+import { MobileProps } from '../interfaces/mobileProps';
 import Button from './Button';
-import { MobileDetailWrapper } from '../styles/mobileDetailStyles';
+import MobileCard from '../components/MobileCard';
 
-export default function MobileDetail({ mobile }: MobileDetailProps) {
+import {
+  MobileDetailContainer,
+  MobileFeaturesWrapper,
+  MobileImageWrapper,
+  MobileFeaturesInfo,
+  MobileSpecificationsContainer,
+  SimilarItemsCarousel
+} from '../styles/mobileDetailStyles';
+
+export default function MobileDetail({ mobile }: MobileProps) {
   const router = useRouter();
+  console.log('mobile is', mobile)
 
   return (
     <>
@@ -20,17 +30,34 @@ export default function MobileDetail({ mobile }: MobileDetailProps) {
         />
         Back
       </Button>
-      <MobileDetailWrapper>
-        <h1>{mobile.name}</h1>
-        <p>Brand: {mobile.brand}</p>
-        <p>Price: €{mobile.basePrice}</p>
-        <Image
-          src={`${mobile.colorOptions[0]?.imageUrl}`}
-          alt={mobile.name}
-          width={400}
-          height={400}
-        />
-      </MobileDetailWrapper>
+
+      <MobileDetailContainer>
+        <MobileFeaturesWrapper>
+          <MobileImageWrapper>
+            <Image
+              src={`${mobile.colorOptions[0]?.imageUrl}`}
+              alt={`${mobile.name} image`}
+              width={400}
+              height={400}
+            />
+          </MobileImageWrapper>
+          <MobileFeaturesInfo>
+            <h1>{mobile.name}</h1>
+            <p>From: {mobile.basePrice}EUR</p>
+          </MobileFeaturesInfo>
+        </MobileFeaturesWrapper>
+
+        <MobileSpecificationsContainer>
+          <p>Brand: {mobile.brand}</p>
+        </MobileSpecificationsContainer>
+
+        <SimilarItemsCarousel>
+          {mobile.similarProducts?.map((mobile) => (
+            <MobileCard key={mobile.id} mobile={mobile} />
+          ))}
+        </SimilarItemsCarousel>
+
+      </MobileDetailContainer>
     </>
   );
 }

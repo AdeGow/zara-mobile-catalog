@@ -1,5 +1,5 @@
 import { Mobile } from './mobileType';
 
-export type MobileCardProps = {
+export type MobileProps = {
   mobile: Mobile;
 };
