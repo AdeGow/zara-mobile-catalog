@@ -23,67 +23,7 @@
   --color-border-secondary: #CCCCCC;
 
   /* Fonts */
-  --font-family-main: 'Helvetica', 'Arial', Sans-Serif;
-}
-
-:root {
-	--grid-spacing-01: 3.75rem;
-	--grid-spacing-02: 5rem;
-	--grid-spacing-03: 5rem;
-	--grid-spacing-04: 3.75rem;
-	--grid-spacing-05: 5rem;
-	--grid-spacing-06: 5rem;
-	--grid-template-spacing-01: 1.25rem;
-	--grid-template-spacing-02: 1.875rem;
-	--grid-template-spacing-03: 2.5rem;
-	--grid-template-spacing-04: 3.125rem;
-	--grid-template-spacing-05: 3.75rem;
-	--grid-template-spacing-06: 4.375rem;
-}
-
-@media screen and (min-width: 64rem) {
-	:root {
-		--grid-spacing-01: 3rem;
-		--grid-spacing-02: 4rem;
-		--grid-spacing-03: 6.5rem;
-		--grid-spacing-04: 9rem;
-		--grid-spacing-05: 12.5rem;
-		--grid-spacing-06: 16.5rem;
-		--grid-template-spacing-01: 3rem;
-		--grid-template-spacing-02: 4.5rem;
-		--grid-template-spacing-03: 6rem;
-		--grid-template-spacing-04: 7.5rem;
-		--grid-template-spacing-05: 9rem;
-		--grid-template-spacing-06: 10.5rem;
-	}
-}
-
-@media screen and (min-width: 100rem) {
-	:root {
-		--grid-spacing-01: 4rem;
-		--grid-spacing-02: 5.5rem;
-		--grid-spacing-03: 8.5rem;
-		--grid-spacing-04: 11rem;
-		--grid-spacing-05: 15.5rem;
-		--grid-spacing-06: 21rem;
-	}
-}
-
-@media screen and (min-width: 120rem) {
-	:root {
-		--grid-spacing-01: 5.5rem;
-		--grid-spacing-02: 6.5rem;
-		--grid-spacing-03: 10rem;
-		--grid-spacing-04: 13.5rem;
-		--grid-spacing-05: 18.75rem;
-		--grid-spacing-06: 25rem;
-		--grid-template-spacing-01: 5.5rem;
-		--grid-template-spacing-02: 8.25rem;
-		--grid-template-spacing-03: 11rem;
-		--grid-template-spacing-04: 13.75rem;
-		--grid-template-spacing-05: 16.5rem;
-		--grid-template-spacing-06: 19.25rem;
-	}
+  --font-family-main: 'Helvetica Neue', 'Arial', Sans-Serif;
 }
 
 :root {
@@ -258,7 +198,7 @@ a {
 	--grid-column-width: calc((100% - var(--grid-column-gutter) * 3 - var(--grid-lateral-margin) * 2) / 4);
 	--grid-lateral-margin: 1.25rem;
 	--grid-width: calc(100vw - var(--layout-lateral-margin) * 2);
-	--layout-lateral-margin: var(--spacing-05);
+	--layout-lateral-margin: var(--spacing-07);
 }
 
 @media screen and (min-width: 48rem) {
@@ -273,7 +213,7 @@ a {
 
 @media screen and (min-width: 80rem) {
 	:root {
-		--layout-lateral-margin: var(--spacing-13);
+		--layout-lateral-margin: var(--spacing-15);
 	}
 }
 

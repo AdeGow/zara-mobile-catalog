@@ -90,18 +90,18 @@ export const MobileCardWrapper = styled.a`
   }
 
   @media (min-width: 760px) {
-    width: 60%;
-    height: 377px;
+    height: 215px;
+    width: 30%;
   }
 
   @media (min-width: 1000px) {
-    width: 35%;
-    height: 275px;
+    height: 210px;
+    width: 25%;
   }
 
   @media (min-width: 1200px) {
-    width: 35%;
-    height: 377px;
+    height: 245px;
+    width: 20%;
   }
 `;
 

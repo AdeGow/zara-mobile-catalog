@@ -5,7 +5,8 @@ export const MobileDetailContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  h1 {
+  h1,
+  h2 {
     color: var(--color-content-high);
     font-size: var(--font-size-title-l);
     line-height: var(--line-height-title-l);
@@ -14,6 +15,10 @@ export const MobileDetailContainer = styled.div`
     font-weight: var(--font-weight-title-l);
     font-family: var(--font-family-title-l);
     margin-bottom: 0;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
   }
 
   p {
@@ -40,6 +45,10 @@ export const MobileFeaturesWrapper = styled.div`
 
   @media (min-width: 1000px) {
     gap: 6rem;
+  }
+
+  @media (min-width: 1000px) {
+    margin: 0 var(--spacing-12);
   }
 `;
 
@@ -180,6 +189,87 @@ export const MobileSpecificationsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (min-width: 1000px) {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1200px) {
+    width: 70%;
+    margin: 0 auto;
+  }
+`;
+
+export const SpecRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  border-top: 1px solid var(--color-border-secondary);
+  &:last-child {
+    border-bottom: 1px solid var(--color-border-secondary);
+  }
+
+  p {
+    color: var(--color-content-high);
+    font-size: var(--font-size-body-s);
+    line-height: var(--line-height-body-s);
+    text-transform: var(--text-transform-body-s);
+    font-stretch: var(--font-stretch-body-s);
+    font-weight: var(--font-weight-body-s);
+    font-family: var(--font-family-body-s);
+  }
+`;
+
+export const SpecName = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 35%;
+
+  p {
+    text-transform: var(--text-transform-title-m);
+  }
+
+  @media (min-width: 375px) {
+    width: 30%;
+  }
+
+  @media (min-width: 760px) {
+    width: 25%;
+  }
+`;
+
+export const SpecValue = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 65%;
+
+  @media (min-width: 375px) {
+    width: 70%;
+  }
+
+  @media (min-width: 760px) {
+    width: 75%;
+  }
+`;
+
+export const SimilarItemsContainer = styled.div`
+  margin: var(--layout-lateral-margin) 0;
+
+  @media (min-width: 1000px) {
+    h2 {
+      padding-left: 10rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    h2 {
+      padding-left: 6rem;
+    }
+  }
 `;
 
 export const SimilarItemsCarousel = styled.div`
@@ -188,6 +278,9 @@ export const SimilarItemsCarousel = styled.div`
   gap: 0;
   flex-wrap: nowrap;
   overflow-x: auto;
-  margin: var(--layout-lateral-margin) 0;
-  padding-left: var(--layout-lateral-margin);
+  padding-left: 2rem;
+
+  @media (min-width: 1000px) {
+    padding-left: 12rem;
+  }
 `;
