@@ -35,15 +35,15 @@ export const MobileCardWrapper = styled.a`
   }
 
   @media (min-width: 760px) {
-    height: 377px;
+    height: 335px;
   }
 
   @media (min-width: 1000px) {
-    height: 275px;
+    height: 230px;
   }
 
   @media (min-width: 1200px) {
-    height: 344px;
+    height: 240px;
   }
 `;
 
