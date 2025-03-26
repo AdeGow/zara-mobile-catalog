@@ -278,7 +278,11 @@ export const SimilarItemsCarousel = styled.div`
   gap: 0;
   flex-wrap: nowrap;
   overflow-x: auto;
-  padding-left: 2rem;
+  padding-left: 0.5rem;
+
+  @media (min-width: 760px) {
+    padding-left: 2rem;
+  }
 
   @media (min-width: 1000px) {
     padding-left: 12rem;
