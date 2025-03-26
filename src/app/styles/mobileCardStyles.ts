@@ -34,7 +34,7 @@ export const AnimatedMobileCardWrapper = styled.a`
     }
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 760px) {
     height: 377px;
   }
 
@@ -52,9 +52,9 @@ export const MobileCardWrapper = styled.a`
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
-  width: 70%;
-  height: 344px;
-  padding: 0.7rem;
+  width: 100%;
+  height: 250px;
+  padding: 1rem;
   flex: 0 0 auto;
   border-left: 0.5px solid var(--color-border-primary);
   border-top: 0.5px solid var(--color-border-primary);
@@ -85,7 +85,11 @@ export const MobileCardWrapper = styled.a`
     }
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 375px) {
+    width: 80%;
+  }
+
+  @media (min-width: 760px) {
     width: 60%;
     height: 377px;
   }
@@ -154,7 +158,7 @@ export const MobileInfoRow = styled.div`
     transition-timing-function: cubic-bezier(0.7, 0, 0.1, 1);
   }
 
-  @media (min-width: 700px and max-width 100px) {
+  @media (min-width: 760px and max-width 100px) {
     font-size: var(--font-size-body-m);
     font-weight: var(--font-weight-label-m);
 

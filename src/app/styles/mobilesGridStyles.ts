@@ -11,7 +11,7 @@ export const MobilesGridWrapper = styled.div`
   z-index: 0;
   margin-top: 0.5rem;
 
-  @media (min-width: 700px) {
+  @media (min-width: 760px) {
     grid-template-columns: repeat(2, 1fr);
   }
 

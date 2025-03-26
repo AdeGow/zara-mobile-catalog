@@ -5,41 +5,50 @@ type StyledButtonProps = {
   variant?: ButtonVariant;
 };
 
-const variantStyles: Record<ButtonVariant, { background: string; color: string; border: string, paddingLeft: string, paddingRight: string, justifyContent: string }> =
+const variantStyles: Record<
+  ButtonVariant,
   {
-    primary: {
-      background: 'var(--color-background-contrast)',
-      color: 'var(--color-content-inverse)',
-      border: 'var(--zds-line-width) solid var(--color-content-high)',
-      paddingLeft: 'var(--spacing-03)',
-      paddingRight: 'var(--spacing-03)',
-      justifyContent: 'center',
-    },
-    secondary: {
-      background: 'var(--color-background-base)',
-      color: 'var(--color-content-high)',
-      border: 'var(--zds-line-width) solid var(--color-content-high)',
-      paddingLeft: 'var(--spacing-03)',
-      paddingRight: 'var(--spacing-03)',
-      justifyContent: 'center',
-    },
-    disabled: {
-      background: 'var(--color-background-disabled)',
-      color: 'var(--color-content-disabled)',
-      border: 'var(--zds-line-width) solid var(--color-content-high)',
-      paddingLeft: 'var(--spacing-03)',
-      paddingRight: 'var(--spacing-03)',
-      justifyContent: 'center',
-    },
-    transparent: {
-      background: 'transparent',
-      color: 'var(--color-content-high)',
-      border: 'var(--zds-line-width) solid transparent',
-      paddingLeft: '0',
-      paddingRight: '0',
-      justifyContent: 'flex-start',
-    }
-  };
+    background: string;
+    color: string;
+    border: string;
+    paddingLeft: string;
+    paddingRight: string;
+    justifyContent: string;
+  }
+> = {
+  primary: {
+    background: 'var(--color-background-contrast)',
+    color: 'var(--color-content-inverse)',
+    border: 'var(--zds-line-width) solid var(--color-content-high)',
+    paddingLeft: 'var(--spacing-03)',
+    paddingRight: 'var(--spacing-03)',
+    justifyContent: 'center',
+  },
+  secondary: {
+    background: 'var(--color-background-base)',
+    color: 'var(--color-content-high)',
+    border: 'var(--zds-line-width) solid var(--color-content-high)',
+    paddingLeft: 'var(--spacing-03)',
+    paddingRight: 'var(--spacing-03)',
+    justifyContent: 'center',
+  },
+  disabled: {
+    background: 'var(--color-background-disabled)',
+    color: 'var(--color-content-mid)',
+    border: 'none',
+    paddingLeft: 'var(--spacing-03)',
+    paddingRight: 'var(--spacing-03)',
+    justifyContent: 'center',
+  },
+  transparent: {
+    background: 'transparent',
+    color: 'var(--color-content-high)',
+    border: 'var(--zds-line-width) solid transparent',
+    paddingLeft: '0',
+    paddingRight: '0',
+    justifyContent: 'flex-start',
+  },
+};
 
 export const StyledButton = styled.button.withConfig({
   shouldForwardProp: (prop) => prop !== 'variant',

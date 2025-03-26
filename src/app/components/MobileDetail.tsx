@@ -60,8 +60,8 @@ export default function MobileDetail({ mobile }: MobileProps) {
             <Image
               src={selectedColor.imageUrl}
               alt={`${mobile.name} image`}
-              width={200}
-              height={200}
+              width={230}
+              height={230}
             />
           </MobileImageWrapper>
           <MobileFeaturesInfo>
@@ -98,16 +98,16 @@ export default function MobileDetail({ mobile }: MobileProps) {
                 ))}
               </ColorsOptionsRow>
             </OptionsWrapper>
+            <AddToCartButtonWrapper>
+              <Button
+                variant={selectedColor && selectedStorage ? 'primary' : 'disabled'}
+                onClick={handleAddToCart}
+                disabled={!selectedColor || !selectedStorage}
+              >
+                Add to Cart
+              </Button>
+            </AddToCartButtonWrapper>
           </MobileFeaturesInfo>
-          <AddToCartButtonWrapper>
-            <Button
-              variant="primary"
-              onClick={handleAddToCart}
-              disabled={!selectedColor || !selectedStorage}
-            >
-              Add to Cart
-            </Button>
-          </AddToCartButtonWrapper>
         </MobileFeaturesWrapper>
 
         <MobileSpecificationsContainer className="section-container">

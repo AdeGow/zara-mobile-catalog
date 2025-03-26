@@ -23,6 +23,7 @@ export default function Mobile({ mobile, parent }: MobileCardProps) {
           alt={`${mobile.brand} ${mobile.name}`}
           className="mobile-card-img"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </CardImageWrapper>
       <CardInfoWrapper>
