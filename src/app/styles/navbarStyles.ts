@@ -7,6 +7,7 @@ export const NavbarWrapper = styled.div`
   align-items: center;
   z-index: 10;
   width: 100%;
+  padding: 0 var(--layout-lateral-margin);
 `;
 
 export const NavItem = styled.nav`

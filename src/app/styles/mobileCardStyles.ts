@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MobileCardWrapper = styled.a`
+export const AnimatedMobileCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,6 +44,60 @@ export const MobileCardWrapper = styled.a`
 
   @media (min-width: 1200px) {
     height: 344px;
+  }
+`;
+
+export const MobileCardWrapper = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 70%;
+  height: 344px;
+  padding: 0.7rem;
+  flex: 0 0 auto;
+  border-left: 0.5px solid var(--color-border-primary);
+  border-top: 0.5px solid var(--color-border-primary);
+  border-bottom: 0.5px solid var(--color-border-primary);
+
+  &:last-child {
+    border-right: 0.5px solid var(--color-border-primary);
+  }
+
+  background-color: var(--color-background-base);
+  background-image: linear-gradient(
+    to top,
+    var(--color-background-contrast) 100%,
+    var(--color-background-base) 0%
+  );
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transition: background-size, color, 1s;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.1, 1);
+
+  &:hover {
+    background-size: 100% 100%;
+    color: var(--color-content-inverse);
+
+    .mobile-card-brand {
+      color: var(--color-content-inverse);
+    }
+  }
+
+  @media (min-width: 700px) {
+    width: 60%;
+    height: 377px;
+  }
+
+  @media (min-width: 1000px) {
+    width: 35%;
+    height: 275px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 35%;
+    height: 377px;
   }
 `;
 

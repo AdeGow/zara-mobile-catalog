@@ -19,6 +19,7 @@ export default function MobilesGrid() {
       {displayMobiles.map((mobile) => (
         <MobileCard
           key={mobile.id}
+          parent="mobiles-grid"
           mobile={{
             id: mobile.id,
             brand: mobile.brand,

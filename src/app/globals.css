@@ -159,7 +159,6 @@ html {
 }
 
 body {
-  margin: 0 var(--layout-lateral-margin);
   color: var(--color-content-high);
   background: var(--color-background-base);
   font-family: var(--font-family-main);
@@ -247,6 +246,10 @@ select:-webkit-autofill {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.section-container {
+  margin: 0 var(--layout-lateral-margin);
 }
 
 :root {

@@ -7,5 +7,6 @@ export type MobileCardItem = {
 };
 
 export type MobileCardProps = {
+  parent: string;
   mobile: MobileCardItem;
 };

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { MobileCardProps } from '../interfaces/mobileCardProps';
 import {
+  AnimatedMobileCardWrapper,
   MobileCardWrapper,
   CardImageWrapper,
   CardInfoWrapper,
@@ -11,9 +12,11 @@ import {
   MobilePrice,
 } from '../styles/mobileCardStyles';
 
-export default function Mobile({ mobile }: MobileCardProps) {
+export default function Mobile({ mobile, parent }: MobileCardProps) {
+  const Wrapper = parent === 'mobiles-grid' ? AnimatedMobileCardWrapper : MobileCardWrapper;
+
   return (
-    <MobileCardWrapper href={`/mobiles/${mobile.id}`}>
+    <Wrapper href={`/mobiles/${mobile.id}`}>
       <CardImageWrapper>
         <Image
           src={mobile.imageUrl}
@@ -31,6 +34,6 @@ export default function Mobile({ mobile }: MobileCardProps) {
           <MobilePrice>{mobile.basePrice?.toFixed(0)} EUR</MobilePrice>
         </MobileInfoRow>
       </CardInfoWrapper>
-    </MobileCardWrapper>
+    </Wrapper>
   );
 }

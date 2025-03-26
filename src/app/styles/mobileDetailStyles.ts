@@ -63,6 +63,9 @@ export const MobileSpecificationsContainer = styled.div`
 export const SimilarItemsCarousel = styled.div`
   display: flex;
   width: 100%;
+  gap: 0;
   flex-wrap: nowrap;
   overflow-x: auto;
+  margin: var(--layout-lateral-margin) 0;
+  padding-left: var(--layout-lateral-margin);
 `;

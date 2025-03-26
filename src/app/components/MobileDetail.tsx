@@ -44,13 +44,15 @@ export default function MobileDetail({ mobile }: MobileProps) {
 
   return (
     <>
-      <Button onClick={() => router.push('/mobiles')} variant="transparent">
-        <Image src="/assets/chevron_left.svg" alt="back button icon" width={20} height={20} />
-        Back
-      </Button>
+      <div className="section-container">
+        <Button onClick={() => router.push('/mobiles')} variant="transparent">
+          <Image src="/assets/chevron_left.svg" alt="back button icon" width={20} height={20} />
+          Back
+        </Button>
+      </div>
 
       <MobileDetailContainer>
-        <MobileFeaturesWrapper>
+        <MobileFeaturesWrapper className="section-container">
           <MobileImageWrapper>
             <Image
               src={selectedColor.imageUrl}
@@ -99,7 +101,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
           </MobileFeaturesInfo>
         </MobileFeaturesWrapper>
 
-        <MobileSpecificationsContainer>
+        <MobileSpecificationsContainer className="section-container">
           <p>Brand: {mobile.brand}</p>
         </MobileSpecificationsContainer>
 
@@ -107,6 +109,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
           {mobile.similarProducts?.map((product) => (
             <MobileCard
               key={product.id}
+              parent="mobile-detail"
               mobile={{
                 id: product.id,
                 brand: product.brand,
