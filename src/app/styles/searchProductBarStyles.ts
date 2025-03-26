@@ -8,7 +8,7 @@ export const SearchInputWrapper = styled.div`
   width: 100%;
   margin: var(--spacing-05);
   position: relative;
-  padding: 0 var(--layout-lateral-margin);
+  padding: 0 0.75rem;
 
   img {
     cursor: pointer;
@@ -16,6 +16,10 @@ export const SearchInputWrapper = styled.div`
     right: 0;
     top: 0;
     width: 5%;
+  }
+
+  @media (min-width: 760px) {
+    padding: 0 var(--layout-lateral-margin);
   }
 `;
 

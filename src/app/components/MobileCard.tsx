@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { MobileCardProps } from '../interfaces/mobileCardProps';
 import {
-  AnimatedMobileCardWrapper,
   MobileCardWrapper,
+  SmallMobileCardWrapper,
   CardImageWrapper,
   CardInfoWrapper,
   MobileInfoRow,
@@ -13,7 +13,7 @@ import {
 } from '../styles/mobileCardStyles';
 
 export default function Mobile({ mobile, parent }: MobileCardProps) {
-  const Wrapper = parent === 'mobiles-grid' ? AnimatedMobileCardWrapper : MobileCardWrapper;
+  const Wrapper = parent === 'mobiles-grid' ? MobileCardWrapper : SmallMobileCardWrapper;
 
   return (
     <Wrapper href={`/mobiles/${mobile.id}`}>

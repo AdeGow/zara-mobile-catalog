@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AnimatedMobileCardWrapper = styled.a`
+export const MobileCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,7 +47,7 @@ export const AnimatedMobileCardWrapper = styled.a`
   }
 `;
 
-export const MobileCardWrapper = styled.a`
+export const SmallMobileCardWrapper = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
