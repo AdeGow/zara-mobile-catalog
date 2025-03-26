@@ -1,10 +1,13 @@
 'use client';
 
+import { useEffect, useRef, useState, useContext, createContext, ReactNode } from 'react';
 import { API } from '../../lib/api';
-import { createContext, useState, useContext, useRef, ReactNode } from 'react';
-import { ProductsContextType } from '../interfaces/productsContextType';
-import { Mobile } from '../interfaces/mobileType';
 import { deduplicateMobiles } from '../utils/deduplicateMobiles';
+import { ProductsContextType } from '../interfaces/productsContextType';
+import { CartItem } from '../interfaces/cartItemType';
+import { Mobile } from '../interfaces/mobileType';
+
+const CART_KEY = 'zara-mobile-cart';
 
 const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
 
@@ -17,58 +20,56 @@ export const ProductsProvider = ({
 }) => {
   const [mobiles] = useState<Mobile[]>(deduplicateMobiles(initialMobiles));
   const [searchedMobiles, setSearchedMobiles] = useState<Mobile[] | null>(null);
-  const [cart, setCart] = useState<Mobile[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
   const [lastQuery, setLastQuery] = useState<string>('');
 
   const searchCache = useRef<Map<string, Mobile[]>>(new Map());
 
+  // Load cart from localStorage on first render
+  useEffect(() => {
+    const storedCart = localStorage.getItem(CART_KEY);
+    if (storedCart) {
+      try {
+        setCart(JSON.parse(storedCart));
+      } catch (error) {
+        console.error('Error parsing cart from localStorage:', error);
+      }
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }, [cart]);
+
   const searchMobiles = async (query: string) => {
     const trimmedQuery = query.trim();
-    console.log('SearchMobile with query as:', query, 'last query is', lastQuery);
-
-    // Reset if empty query
     if (trimmedQuery === '') {
-      console.log('Query empty, reset data');
       setSearchedMobiles(null);
       setLastQuery('');
       return;
     }
+    if (trimmedQuery === lastQuery) return;
 
-    // Skip API call if same query
-    if (trimmedQuery === lastQuery) {
-      console.log('Same query, skipping fetch data');
-      return;
-    }
-
-    // Check cache first
     if (searchCache.current.has(trimmedQuery)) {
-      console.log('SearchMobile with query as:', query, 'last query is', lastQuery);
-      console.log('Using cached data');
-      const cachedMobiles = searchCache.current.get(trimmedQuery);
-      const deduplicatedMobiles = deduplicateMobiles(cachedMobiles || []);
-      setSearchedMobiles(deduplicatedMobiles);
+      const cached = searchCache.current.get(trimmedQuery);
+      setSearchedMobiles(deduplicateMobiles(cached || []));
       setLastQuery(trimmedQuery);
       return;
     }
 
-    // If not cached: fetch from API
     try {
-      console.log('Data not cached, fetching data from API');
-      const response = await API.get(`/products?search=${trimmedQuery}&limit=20`);
-      const deduplicatedMobiles = deduplicateMobiles(response.data);
-
-      setSearchedMobiles(deduplicatedMobiles);
-      // Store in cache
-      searchCache.current.set(trimmedQuery, deduplicatedMobiles);
-    } catch (error) {
-      console.error('Error searching mobiles:', error);
+      const res = await API.get(`/products?search=${trimmedQuery}&limit=20`);
+      const deduped = deduplicateMobiles(res.data);
+      setSearchedMobiles(deduped);
+      searchCache.current.set(trimmedQuery, deduped);
+    } catch (err) {
+      console.error('Search error:', err);
       setSearchedMobiles([]);
-      setLastQuery(trimmedQuery);
     }
   };
 
-  const addToCart = (mobile: Mobile) => setCart((prev) => [...prev, mobile]);
-
+  const addToCart = (item: CartItem) => setCart((prev) => [...prev, item]);
   const removeFromCart = (id: string) => setCart((prev) => prev.filter((item) => item.id !== id));
 
   return (

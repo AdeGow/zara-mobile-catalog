@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useProducts } from '../context/ProductsContext';
 import { StorageOption, ColorOption } from '../interfaces/mobileType';
 import { MobileProps } from '../interfaces/mobileProps';
+import { CartItem } from '../interfaces/cartItemType';
 import Button from './Button';
 import MobileCard from '../components/MobileCard';
 
@@ -38,13 +39,14 @@ export default function MobileDetail({ mobile }: MobileProps) {
   const handleAddToCart = () => {
     if (!selectedColor || !selectedStorage) return;
 
-    const item = {
+    const item: CartItem = {
       ...mobile,
       selectedColor,
       selectedStorage,
     };
 
     addToCart(item);
+    console.log('adding item to cart with item', item);
   };
 
   const formatSpecKey = (key: string) => {
@@ -85,6 +87,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
               alt={`${mobile.name} image`}
               width={230}
               height={230}
+              priority
             />
           </MobileImageWrapper>
           <MobileFeaturesInfo>

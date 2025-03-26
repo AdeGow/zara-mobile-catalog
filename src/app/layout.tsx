@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import LayoutHeader from './components/LayoutHeader';
+import { fetchMobiles } from './services/search';
+import { ProductsProvider } from './context/ProductsContext';
 import StyledComponentsRegistry from '@/lib/styled-components-registry';
 import './globals.css';
 
@@ -8,15 +11,22 @@ export const metadata: Metadata = {
     'Buy online the latest Apple and Samsung smartphones at the best price directly in Zara Mobile Catalog. Select your favorite brand or find your perfect match by filtering colors and storage options.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const mobiles = await fetchMobiles();
+
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ProductsProvider initialMobiles={mobiles}>
+          <StyledComponentsRegistry>
+            <LayoutHeader />
+            {children}
+          </StyledComponentsRegistry>
+        </ProductsProvider>
       </body>
     </html>
   );
