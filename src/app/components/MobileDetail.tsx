@@ -14,11 +14,14 @@ import {
   MobileFeaturesWrapper,
   MobileImageWrapper,
   MobileFeaturesInfo,
-  MobileSpecificationsContainer,
-  SimilarItemsCarousel,
   OptionsWrapper,
   ColorOptionSquare,
+  StorageOptionsRow,
+  ColorsOptionsRow,
   StorageOptionButton,
+  AddToCartButtonWrapper,
+  MobileSpecificationsContainer,
+  SimilarItemsCarousel,
 } from '../styles/mobileDetailStyles';
 
 export default function MobileDetail({ mobile }: MobileProps) {
@@ -57,8 +60,8 @@ export default function MobileDetail({ mobile }: MobileProps) {
             <Image
               src={selectedColor.imageUrl}
               alt={`${mobile.name} image`}
-              width={400}
-              height={400}
+              width={200}
+              height={200}
             />
           </MobileImageWrapper>
           <MobileFeaturesInfo>
@@ -68,29 +71,35 @@ export default function MobileDetail({ mobile }: MobileProps) {
             </p>
             <OptionsWrapper>
               <p>Storage ¿How much space do you need?</p>
-              {mobile.storageOptions?.map((option) => (
-                <StorageOptionButton
-                  key={option.capacity}
-                  selected={selectedStorage?.capacity === option.capacity}
-                  onClick={() => setSelectedStorage(option)}
-                >
-                  {option.capacity}
-                </StorageOptionButton>
-              ))}
+              <StorageOptionsRow>
+                {mobile.storageOptions?.map((option) => (
+                  <StorageOptionButton
+                    key={option.capacity}
+                    selected={selectedStorage?.capacity === option.capacity}
+                    onClick={() => setSelectedStorage(option)}
+                  >
+                    {option.capacity}
+                  </StorageOptionButton>
+                ))}
+              </StorageOptionsRow>
             </OptionsWrapper>
 
             <OptionsWrapper>
               <p>Color. Pick your favorite.</p>
-              {/* Color options */}
-              {mobile.colorOptions?.map((option) => (
-                <ColorOptionSquare
-                  key={option.hexCode}
-                  color={option.hexCode}
-                  selected={selectedColor.hexCode === option.hexCode}
-                  onClick={() => setSelectedColor(option)}
-                />
-              ))}
+              <ColorsOptionsRow>
+                {/* Color options */}
+                {mobile.colorOptions?.map((option) => (
+                  <ColorOptionSquare
+                    key={option.hexCode}
+                    color={option.hexCode}
+                    selected={selectedColor.hexCode === option.hexCode}
+                    onClick={() => setSelectedColor(option)}
+                  />
+                ))}
+              </ColorsOptionsRow>
             </OptionsWrapper>
+          </MobileFeaturesInfo>
+          <AddToCartButtonWrapper>
             <Button
               variant="primary"
               onClick={handleAddToCart}
@@ -98,7 +107,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
             >
               Add to Cart
             </Button>
-          </MobileFeaturesInfo>
+          </AddToCartButtonWrapper>
         </MobileFeaturesWrapper>
 
         <MobileSpecificationsContainer className="section-container">
