@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getCart, removeFromCart } from '../utils/cartUtils';
-import { CartItem } from '../interfaces/cartItemType';
+import { getCart, removeFromCart } from '@/utils/cartUtils';
+import { CartItem } from '@/interfaces/cartItemType';
 
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import Button from '../components/Button';
+import Button from '@/components/UI/Button';
 import {
   CartWrapper,
   CartList,
@@ -22,7 +22,7 @@ import {
   InlinePaymentWrapper,
   InlineTotalPriceRow,
   InlineCartButtonWrapper,
-} from '../styles/cartStyles';
+} from '@/styles/cartStyles';
 
 export default function CartPage() {
   const router = useRouter();

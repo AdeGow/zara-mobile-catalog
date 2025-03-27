@@ -1,7 +1,7 @@
-import { fetchMobile } from '@/app/services/search';
-import { MobilePageProps } from '@/app/interfaces/mobilePageProps';
+import { fetchMobile } from '@/services/search';
+import { MobilePageProps } from '@/interfaces/mobilePageProps';
 import { notFound } from 'next/navigation';
-import MobileDetail from '@/app/components/MobileDetail';
+import MobileDetail from '@/components/MobileDetail';
 
 export default async function MobileDetailPage({ params }: MobilePageProps) {
   const mobile = await fetchMobile(params.mobileId);

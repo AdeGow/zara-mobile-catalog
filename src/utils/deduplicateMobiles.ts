@@ -1,4 +1,4 @@
-import { Mobile } from '../interfaces/mobileType';
+import { Mobile } from '@/interfaces/mobileType';
 
 export const deduplicateMobiles = (mobiles: Mobile[]): Mobile[] => {
   const seen = new Set<string>();

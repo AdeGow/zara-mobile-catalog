@@ -1,9 +1,9 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Navbar from './Navbar';
-import SearchProductBar from './SearchProductBar';
-import { LayoutHeaderWrapper } from '../styles/layoutHeaderStyles';
+import Navbar from '@/components/UI/Navbar';
+import SearchProductBar from '@/components/UI/SearchProductBar';
+import { LayoutHeaderWrapper } from '@/styles/UI/layoutHeaderStyles';
 
 export default function LayoutHeader() {
   const path = usePathname();

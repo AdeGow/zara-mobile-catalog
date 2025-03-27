@@ -1,4 +1,4 @@
-import { Mobile, ColorOption, StorageOption } from './mobileType';
+import { Mobile, ColorOption, StorageOption } from '@/interfaces/mobileType';
 
 export type CartItem = Mobile & {
   selectedColor?: ColorOption;

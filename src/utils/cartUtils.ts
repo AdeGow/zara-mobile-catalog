@@ -1,4 +1,4 @@
-import { CartItem } from '../interfaces/cartItemType';
+import { CartItem } from '@/interfaces/cartItemType';
 
 const CART_KEY = 'zara_cart';
 

@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useProducts } from '@/context/ProductsContext';
 import {
   SearchInputWrapper,
   SearchInput,
   SearchResultsCount,
-} from '../styles/searchProductBarStyles';
-import { useProducts } from '../context/ProductsContext';
+} from '@/styles/UI/searchProductBarStyles';
 
 export default function SearchProductBar() {
   const [searchQuery, setSearchQuery] = useState('');

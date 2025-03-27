@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState, useContext, createContext, ReactNode } from 'react';
-import { API } from '../../lib/api';
-import { deduplicateMobiles } from '../utils/deduplicateMobiles';
-import { ProductsContextType } from '../interfaces/productsContextType';
-import { Mobile } from '../interfaces/mobileType';
+import { API } from '@/lib/api';
+import { deduplicateMobiles } from '@/utils/deduplicateMobiles';
+import { ProductsContextType } from '@/interfaces/productsContextType';
+import { Mobile } from '@/interfaces/mobileType';
 
 const TARGET_MOBILE_COUNT = 20;
 const FETCH_LIMIT = 20;
@@ -33,7 +33,6 @@ export const ProductsProvider = ({
       if (deduplicated.length < TARGET_MOBILE_COUNT) {
         const missingCount = TARGET_MOBILE_COUNT - deduplicated.length;
         const offset = initialMobiles.length;
-        console.log('missing count', missingCount, 'offset is:', offset)
 
         try {
           const response = await API.get(`/products?limit=${missingCount}&offset=${offset}`);

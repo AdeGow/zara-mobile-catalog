@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { addToCart } from '../utils/cartUtils';
+import { addToCart } from '@/utils/cartUtils';
 
-import { StorageOption, ColorOption } from '../interfaces/mobileType';
-import { MobileProps } from '../interfaces/mobileProps';
-import { CartItem } from '../interfaces/cartItemType';
+import { StorageOption, ColorOption } from '@/interfaces/mobileType';
+import { MobileProps } from '@/interfaces/mobileProps';
+import { CartItem } from '@/interfaces/cartItemType';
 
-import Button from './Button';
-import MobileCard from '../components/MobileCard';
+import Button from '@/components/UI/Button';
+import MobileCard from '@/components/UI/MobileCard';
 
 import {
   MobileDetailContainer,
@@ -30,7 +30,7 @@ import {
   SpecValue,
   SimilarItemsContainer,
   SimilarItemsCarousel,
-} from '../styles/mobileDetailStyles';
+} from '@/styles/mobileDetailStyles';
 
 export default function MobileDetail({ mobile }: MobileProps) {
   const router = useRouter();

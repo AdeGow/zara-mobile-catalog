@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { MobileCardProps } from '../interfaces/mobileCardProps';
+import { MobileCardProps } from '@/interfaces/mobileCardProps';
 import {
   MobileCardWrapper,
   SmallMobileCardWrapper,
@@ -10,7 +10,7 @@ import {
   MobileInfoRow,
   MobileName,
   MobilePrice,
-} from '../styles/mobileCardStyles';
+} from '@/styles/UI/mobileCardStyles';
 
 export default function Mobile({ mobile, parent }: MobileCardProps) {
   const Wrapper = parent === 'mobiles-grid' ? MobileCardWrapper : SmallMobileCardWrapper;

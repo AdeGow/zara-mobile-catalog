@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledEmptyMessage } from '../styles/emptyMessageStyles';
+import { StyledEmptyMessage } from '@/styles/UI/emptyMessageStyles';
 
 export default function EmptyMessage() {
 

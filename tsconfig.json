@@ -26,17 +26,26 @@
       "@/*": [
         "src/*"
       ],
-      "@/lib/*": [
-        "src/lib/*"
-      ],
       "@/components/*": [
         "src/components/*"
+      ],
+      "@/context/*": [
+        "src/context/*"
+      ],
+      "@/hooks/*": [
+        "src/hooks/*"
       ],
       "@/interfaces/*": [
         "src/interfaces/*"
       ],
+      "@/lib/*": [
+        "src/lib/*"
+      ],
       "@/services/*": [
         "src/services/*"
+      ],
+      "@/styles/*": [
+        "src/styles/*"
       ],
       "@/styles/*": [
         "src/styles/*"

@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useHasMounted } from '../hooks/useHasMounted';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NavbarWrapper, NavItem } from '../styles/navbarStyles';
+import { useHasMounted } from '@/hooks/useHasMounted';
+import { NavbarWrapper, NavItem } from '@/styles/UI/navbarStyles';
 
 const CART_KEY = 'zara_cart';
 

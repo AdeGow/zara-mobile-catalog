@@ -1,5 +1,5 @@
-import { API } from '../../lib/api';
-import { Mobile } from '../interfaces/mobileType';
+import { API } from '@/lib/api';
+import { Mobile } from '@/interfaces/mobileType';
 
 export const fetchMobiles = async () => {
   const res = await API.get('/products?limit=20');

@@ -1,9 +1,9 @@
 'use client';
 
-import { useProducts } from '../context/ProductsContext';
-import MobileCard from '../components/MobileCard';
-import EmptyMessage from '../components/EmptyMessage';
-import { MobilesGridWrapper } from '../styles/mobilesGridStyles';
+import { useProducts } from '@/context/ProductsContext';
+import MobileCard from '@/components/UI/MobileCard';
+import EmptyMessage from '@/components/UI/EmptyMessage';
+import { MobilesGridWrapper } from '@/styles/mobilesGridStyles';
 
 export default function MobilesGrid() {
   const { mobiles, searchedMobiles } = useProducts();

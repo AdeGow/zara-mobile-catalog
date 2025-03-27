@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import LayoutHeader from './components/LayoutHeader';
-import { fetchMobiles } from './services/search';
-import { ProductsProvider } from './context/ProductsContext';
+import LayoutHeader from '@/components/UI/LayoutHeader';
+import { fetchMobiles } from '@/services/search';
+import { ProductsProvider } from '@/context/ProductsContext';
 import StyledComponentsRegistry from '@/lib/styled-components-registry';
 import './globals.css';
 

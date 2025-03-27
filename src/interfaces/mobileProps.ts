@@ -1,4 +1,4 @@
-import { Mobile } from './mobileType';
+import { Mobile } from '@/interfaces/mobileType';
 
 export type MobileProps = {
   mobile: Mobile;
