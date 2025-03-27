@@ -20,7 +20,7 @@ export const CartList = styled.ul`
   gap: 2rem;
 `;
 
-export const CartItem = styled.li`
+export const StyledCartItem = styled.li`
   display: flex;
   gap: 1.5rem;
   border-bottom: 1px solid var(--color-border-primary);

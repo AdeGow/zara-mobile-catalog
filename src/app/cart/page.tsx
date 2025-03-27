@@ -1,6 +1,9 @@
 'use client';
 
-import { useProducts } from '../context/ProductsContext';
+import { useEffect, useState } from 'react';
+import { getCart, removeFromCart } from '../utils/cartUtils';
+import { CartItem } from '../interfaces/cartItemType';
+
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Button from '../components/Button';
@@ -8,33 +11,41 @@ import {
   CartWrapper,
   EmptyMessage,
   CartList,
-  CartItem,
+  StyledCartItem,
   CartDetails,
   RemoveButton,
   TotalRow,
 } from '../styles/cartStyles';
 
 export default function CartPage() {
-  const { cart, removeFromCart } = useProducts();
   const router = useRouter();
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-  console.log('Cart is:', cart);
+  useEffect(() => {
+    setCart(getCart());
+  }, []);
 
-  const total = cart.reduce((sum, item) => {
-    return sum + (item.basePrice ?? 0);
-  }, 0);
+  const handleRemove = (id: string) => {
+    removeFromCart(id);
+    setCart(getCart());
+  };
+
+  const total = cart.reduce(
+    (sum, item) => sum + (item.selectedStorage?.price ?? item.basePrice ?? 0),
+    0,
+  );
 
   return (
     <CartWrapper className="section-container">
       <h1>Shopping Cart</h1>
 
-      {cart.length === 0 ? (
+      {cart && cart.length === 0 ? (
         <EmptyMessage>Your cart is empty.</EmptyMessage>
       ) : (
         <>
           <CartList>
             {cart.map((item, index) => (
-              <CartItem key={`${item.id}-${index}`}>
+              <StyledCartItem key={`${item.id}-${index}`}>
                 <Image
                   src={item.selectedColor?.imageUrl ?? item.imageUrl}
                   alt={item.name}
@@ -56,9 +67,9 @@ export default function CartPage() {
                   <p>
                     <strong>Price:</strong> {item.selectedStorage?.price ?? item.basePrice} EUR
                   </p>
-                  <RemoveButton onClick={() => removeFromCart(item.id)}>Remove</RemoveButton>
+                  <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
                 </CartDetails>
-              </CartItem>
+              </StyledCartItem>
             ))}
           </CartList>
 
@@ -66,9 +77,10 @@ export default function CartPage() {
             <strong>Total:</strong> {total.toFixed(2)} EUR
           </TotalRow>
 
-          <Button variant="primary" onClick={() => router.push('/mobiles')}>
-            Continuar comprando
+          <Button variant="secondary" onClick={() => router.push('/mobiles')}>
+            Continue shopping
           </Button>
+          <Button variant="primary">Pay</Button>
         </>
       )}
     </CartWrapper>

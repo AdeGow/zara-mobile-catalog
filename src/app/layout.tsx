@@ -21,12 +21,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ProductsProvider initialMobiles={mobiles}>
-          <StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <ProductsProvider initialMobiles={mobiles}>
             <LayoutHeader />
             {children}
-          </StyledComponentsRegistry>
-        </ProductsProvider>
+          </ProductsProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

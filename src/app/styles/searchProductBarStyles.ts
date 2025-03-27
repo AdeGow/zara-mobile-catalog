@@ -15,11 +15,16 @@ export const SearchInputWrapper = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    width: 5%;
+    width: 9%;
+    padding-right: 0.75rem;
   }
 
   @media (min-width: 760px) {
     padding: 0 var(--layout-lateral-margin);
+
+    img {
+      padding-right: var(--layout-lateral-margin);
+    }
   }
 `;
 

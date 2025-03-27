@@ -4,9 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useProducts } from '../context/ProductsContext';
+import { addToCart } from '../utils/cartUtils';
+
 import { StorageOption, ColorOption } from '../interfaces/mobileType';
 import { MobileProps } from '../interfaces/mobileProps';
 import { CartItem } from '../interfaces/cartItemType';
+
 import Button from './Button';
 import MobileCard from '../components/MobileCard';
 
@@ -31,7 +34,6 @@ import {
 
 export default function MobileDetail({ mobile }: MobileProps) {
   const router = useRouter();
-  const { addToCart } = useProducts();
 
   const [selectedColor, setSelectedColor] = useState<ColorOption>(mobile.colorOptions?.[0]);
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(null);
