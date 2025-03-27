@@ -5,6 +5,17 @@ export const CartWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+
+  h1 {
+    color: var(--color-content-high);
+    font-size: var(--font-size-title-l);
+    line-height: var(--line-height-title-l);
+    text-transform: var(--text-transform-title-l);
+    font-stretch: var(--font-stretch-title-l);
+    font-weight: var(--font-weight-title-l);
+    font-family: var(--font-family-title-l);
+    margin-bottom: 0;
+  }
 `;
 
 export const CartList = styled.ul`

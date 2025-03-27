@@ -44,6 +44,7 @@ export default function CartPage() {
         <EmptyMessage />
       ) : (
         <>
+          <h1>Cart ({cart.length})</h1>
           <CartList>
             {cart.map((item, index) => (
               <StyledCartItem key={`${item.id}-${index}`}>
