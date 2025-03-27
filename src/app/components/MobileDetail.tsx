@@ -20,7 +20,6 @@ import {
   OptionsWrapper,
   ColorOptionSquare,
   ColorNameRow,
-  ColorNameLabel,
   StorageOptionsRow,
   ColorsOptionsRow,
   StorageOptionButton,
@@ -130,7 +129,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
                 ))}
               </ColorsOptionsRow>
               <ColorNameRow>
-                <ColorNameLabel>{displayColor?.name}</ColorNameLabel>
+                <p>{displayColor?.name}</p>
               </ColorNameRow>
             </OptionsWrapper>
 

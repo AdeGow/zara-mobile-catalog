@@ -169,6 +169,7 @@ export const ColorNameRow = styled.div`
   padding-left: 0.2rem;
 
   p {
+    text-wrap: nowrap;
     font-size: var(--font-size-body-m);
     font-weight: var(--font-weight-body-m);
     color: var(--color-content-high);
@@ -184,22 +185,6 @@ export const ColorNameRow = styled.div`
         opacity: 1;
       }
     }
-  }
-`;
-
-export const ColorNameLabel = styled.p`
-  text-wrap: nowrap;
-  font-size: var(--font-size-body-m);
-  font-weight: var(--font-weight-body-m);
-  color: var(--color-content-high);
-  transition: opacity 0.3s ease-in-out;
-  z-index: 8;
-  animation: appear 300ms ease-in-out;
-
-  @keyframes appear {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
   }
 `;
 
