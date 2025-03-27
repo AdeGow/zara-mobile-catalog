@@ -8,10 +8,6 @@ import { MobilesGridWrapper } from '../styles/mobilesGridStyles';
 export default function MobilesGrid() {
   const { mobiles, searchedMobiles } = useProducts();
   const displayMobiles = searchedMobiles ?? mobiles;
-  console.log(
-    'Rendered Mobiles:',
-    displayMobiles.map((m) => m.id),
-  );
 
   return (
     <>
