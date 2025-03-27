@@ -7,9 +7,9 @@ import { CartItem } from '../interfaces/cartItemType';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Button from '../components/Button';
+import EmptyMessage from '../components/EmptyMessage';
 import {
   CartWrapper,
-  EmptyMessage,
   CartList,
   StyledCartItem,
   CartDetails,
@@ -37,10 +37,8 @@ export default function CartPage() {
 
   return (
     <CartWrapper className="section-container">
-      <h1>Shopping Cart</h1>
-
       {cart && cart.length === 0 ? (
-        <EmptyMessage>Your cart is empty.</EmptyMessage>
+        <EmptyMessage />
       ) : (
         <>
           <CartList>

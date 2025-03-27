@@ -2,6 +2,7 @@
 
 import { useProducts } from '../context/ProductsContext';
 import MobileCard from '../components/MobileCard';
+import EmptyMessage from '../components/EmptyMessage';
 import { MobilesGridWrapper } from '../styles/mobilesGridStyles';
 
 export default function MobilesGrid() {
@@ -11,24 +12,28 @@ export default function MobilesGrid() {
     'Rendered Mobiles:',
     displayMobiles.map((m) => m.id),
   );
-  const uniqueIds = new Set(displayMobiles.map((m) => m.id));
-  console.log('Unique count:', uniqueIds.size, 'Rendered count:', displayMobiles.length);
 
   return (
-    <MobilesGridWrapper>
-      {displayMobiles.map((mobile) => (
-        <MobileCard
-          key={mobile.id}
-          parent="mobiles-grid"
-          mobile={{
-            id: mobile.id,
-            brand: mobile.brand,
-            name: mobile.name,
-            basePrice: mobile.basePrice,
-            imageUrl: mobile.imageUrl,
-          }}
-        />
-      ))}
-    </MobilesGridWrapper>
+    <>
+      {displayMobiles && displayMobiles.length === 0 ? (
+        <EmptyMessage />
+      ) : (
+        <MobilesGridWrapper>
+          {displayMobiles.map((mobile) => (
+            <MobileCard
+              key={mobile.id}
+              parent="mobiles-grid"
+              mobile={{
+                id: mobile.id,
+                brand: mobile.brand,
+                name: mobile.name,
+                basePrice: mobile.basePrice,
+                imageUrl: mobile.imageUrl,
+              }}
+            />
+          ))}
+        </MobilesGridWrapper>
+      )}
+    </>
   );
 }
