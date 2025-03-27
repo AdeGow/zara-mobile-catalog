@@ -16,6 +16,24 @@ export const CartWrapper = styled.div`
     font-family: var(--font-family-title-l);
     margin-bottom: 0;
   }
+
+  .mobile-footer {
+    display: flex;
+  }
+
+  .desktop-footer {
+    display: none;
+  }
+
+  @media (min-width: 760px) {
+    .mobile-footer {
+      display: none;
+    }
+
+    .desktop-footer {
+      display: flex;
+    }
+  }
 `;
 
 export const CartList = styled.ul`
@@ -142,5 +160,59 @@ export const CartButtonWrapper = styled.div`
 
   button {
     width: 100%;
+  }
+`;
+
+export const InlineCartFooter = styled.div`
+  display: flex;
+  padding: 1rem 0;
+  margin: 0 var(--layout-lateral-margin);
+  flex-direction: row;
+  justify-content: space-between;
+  width: calc(100% - 2 * var(--layout-lateral-margin));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`;
+
+export const InlineCartButtonWrapper = styled.div`
+  display: flex;
+  flex: 0 0 auto;
+
+  button {
+    width: 100%;
+  }
+`;
+
+export const InlineTotalPriceRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 1rem;
+  gap: 1rem;
+
+  h2 {
+    color: var(--color-content-high);
+    font-size: var(--font-size-title-m);
+    text-align: left;
+    line-height: var(--line-height-title-m);
+    text-transform: var(--text-transform-title-m);
+    font-stretch: var(--font-stretch-title-m);
+    font-weight: 400;
+    font-family: var(--font-family-title-m);
+    margin-bottom: 0;
+  }
+`;
+
+export const InlinePaymentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+  flex: 1;
+  gap: 1rem;
+
+  button {
+    width: 30%;
   }
 `;

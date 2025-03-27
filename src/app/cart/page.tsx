@@ -7,7 +7,6 @@ import { CartItem } from '../interfaces/cartItemType';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Button from '../components/Button';
-import EmptyMessage from '../components/EmptyMessage';
 import {
   CartWrapper,
   CartList,
@@ -19,6 +18,10 @@ import {
   CartFooter,
   CartButtonsRow,
   CartButtonWrapper,
+  InlineCartFooter,
+  InlinePaymentWrapper,
+  InlineTotalPriceRow,
+  InlineCartButtonWrapper,
 } from '../styles/cartStyles';
 
 export default function CartPage() {
@@ -70,28 +73,44 @@ export default function CartPage() {
         ))}
       </CartList>
 
-      <CartFooter>
+      {/* Mobile Footer */}
+      <CartFooter className="mobile-footer">
         <TotalPriceRow>
           <h2>Total:</h2>
           <h2>{total.toFixed(0)} EUR</h2>
         </TotalPriceRow>
-
         <CartButtonsRow>
           <CartButtonWrapper style={{ width: cart.length === 0 ? '100%' : '50%' }}>
             <Button variant="secondary" onClick={() => router.push('/mobiles')}>
               Continue shopping
             </Button>
           </CartButtonWrapper>
-          <CartButtonWrapper
-            style={{
-              display: cart.length === 0 ? 'none' : 'block',
-              width: cart.length === 0 ? '0' : '50%',
-            }}
-          >
-            <Button variant="primary">Pay</Button>
-          </CartButtonWrapper>
+          {cart.length > 0 && (
+            <CartButtonWrapper style={{ width: '50%' }}>
+              <Button variant="primary">Pay</Button>
+            </CartButtonWrapper>
+          )}
         </CartButtonsRow>
       </CartFooter>
+
+      {/* Tablet & Desktop Footer */}
+      <InlineCartFooter className="desktop-footer">
+        <InlineCartButtonWrapper>
+          <Button variant="secondary" onClick={() => router.push('/mobiles')}>
+            Continue shopping
+          </Button>
+        </InlineCartButtonWrapper>
+
+        {cart.length > 0 && (
+          <InlinePaymentWrapper>
+            <InlineTotalPriceRow>
+              <h2>Total:</h2>
+              <h2>{total.toFixed(0)} EUR</h2>
+            </InlineTotalPriceRow>
+            <Button variant="primary">Pay</Button>
+          </InlinePaymentWrapper>
+        )}
+      </InlineCartFooter>
     </CartWrapper>
   );
 }
