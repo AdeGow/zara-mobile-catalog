@@ -4,13 +4,7 @@ export const CartWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
-`;
-
-export const EmptyMessage = styled.p`
-  font-size: var(--font-size-body-l);
-  text-align: center;
-  margin-top: 2rem;
+  gap: 1.5rem;
 `;
 
 export const CartList = styled.ul`
@@ -23,43 +17,109 @@ export const CartList = styled.ul`
 
 export const StyledCartItem = styled.li`
   display: flex;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--color-border-primary);
-  padding-bottom: 1rem;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  width: 100%;
+
+  @media (min-width: 760px) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 `;
 
-export const CartDetails = styled.div`
+export const CartImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 50%;
+
+  @media (min-width: 760px) {
+    flex: 0 0 auto;
+    width: unset;
+  }
+`;
+
+export const CartItemDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.3rem;
+  gap: 2rem;
+  width: 50%;
 
-  h2 {
-    font-size: var(--font-size-title-s);
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      color: var(--color-content-high);
+      font-size: var(--font-size-title-m);
+      line-height: var(--line-height-title-m);
+      text-transform: var(--text-transform-title-m);
+      font-stretch: var(--font-stretch-title-m);
+      font-weight: var(--font-weight-title-m);
+      font-family: var(--font-family-title-m);
+      margin: 0;
+    }
+
+    p:not(.cart-item-name) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  p {
-    font-size: var(--font-size-body-m);
+  @media (min-width: 760px) {
+    flex: 1;
+    width: unset;
+    gap: 3rem;
   }
 `;
 
 export const RemoveButton = styled.button`
-  margin-top: 0.5rem;
-  padding: 0.4rem 0.8rem;
-  background-color: var(--color-background-disabled);
-  color: var(--color-content-high);
-  border: 1px solid var(--color-border-secondary);
-  border-radius: 4px;
+  border: none;
   cursor: pointer;
+  color: var(--color-semantic-danger-high);
+  font-size: var(--font-size-body-m);
+  text-align: left;
+  line-height: var(--line-height-body-m);
+  text-transform: var(--text-transform-body-m);
+  font-stretch: var(--font-stretch-body-m);
+  font-weight: var(--font-weight-body-m);
+  font-family: var(--font-family-body-m);
+  margin: 0;
+`;
 
-  &:hover {
-    background-color: var(--color-background-contrast);
-    color: var(--color-content-inverse);
+export const TotalPriceRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  h2 {
+    color: var(--color-content-high);
+    font-size: var(--font-size-title-l);
+    text-align: left;
+    line-height: var(--line-height-title-l);
+    text-transform: var(--text-transform-title-l);
+    font-stretch: var(--font-stretch-title-l);
+    font-weight: 400;
+    font-family: var(--font-family-title-l);
   }
 `;
 
-export const TotalRow = styled.div`
-  text-align: right;
-  font-size: var(--font-size-title-m);
-  font-weight: var(--font-weight-title-m);
+export const CartButtonsRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const CartButtonWrapper = styled.div`
+  display: flex;
+
+  @media (min-width: 375px) {
+    width: 50%;
+
+    button {
+      width: 100%;
+    }
+  }
 `;

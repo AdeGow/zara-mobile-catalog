@@ -12,9 +12,12 @@ import {
   CartWrapper,
   CartList,
   StyledCartItem,
-  CartDetails,
+  CartItemDetails,
+  CartImageWrapper,
   RemoveButton,
-  TotalRow,
+  TotalPriceRow,
+  CartButtonsRow,
+  CartButtonWrapper,
 } from '../styles/cartStyles';
 
 export default function CartPage() {
@@ -44,41 +47,46 @@ export default function CartPage() {
           <CartList>
             {cart.map((item, index) => (
               <StyledCartItem key={`${item.id}-${index}`}>
-                <Image
-                  src={item.selectedColor?.imageUrl ?? item.imageUrl}
-                  alt={item.name}
-                  width={100}
-                  height={100}
-                />
-                <CartDetails>
-                  <h2>{item.name}</h2>
-                  {item.selectedColor && (
+                <CartImageWrapper>
+                  <Image
+                    src={item.selectedColor?.imageUrl ?? item.imageUrl}
+                    alt={item.name}
+                    width={200}
+                    height={200}
+                  />
+                </CartImageWrapper>
+                <CartItemDetails>
+                  <div>
+                    <p className="cart-item-name">{item.name}</p>
                     <p>
-                      <strong>Color:</strong> {item.selectedColor.name}
+                      {item.selectedStorage && item.selectedStorage.capacity} |{' '}
+                      {item.selectedColor && item.selectedColor.name}
                     </p>
-                  )}
-                  {item.selectedStorage && (
-                    <p>
-                      <strong>Storage:</strong> {item.selectedStorage.capacity}
-                    </p>
-                  )}
-                  <p>
-                    <strong>Price:</strong> {item.selectedStorage?.price ?? item.basePrice} EUR
-                  </p>
-                  <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
-                </CartDetails>
+                    <p>{item.selectedStorage?.price ?? item.basePrice} EUR</p>
+                  </div>
+                  <div>
+                    <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
+                  </div>
+                </CartItemDetails>
               </StyledCartItem>
             ))}
           </CartList>
 
-          <TotalRow>
-            <strong>Total:</strong> {total.toFixed(2)} EUR
-          </TotalRow>
+          <TotalPriceRow>
+            <h2>Total:</h2>
+            <h2>{total.toFixed(0)} EUR</h2>
+          </TotalPriceRow>
 
-          <Button variant="secondary" onClick={() => router.push('/mobiles')}>
-            Continue shopping
-          </Button>
-          <Button variant="primary">Pay</Button>
+          <CartButtonsRow>
+            <CartButtonWrapper>
+              <Button variant="secondary" onClick={() => router.push('/mobiles')}>
+                Continue shopping
+              </Button>
+            </CartButtonWrapper>
+            <CartButtonWrapper>
+              <Button variant="primary">Pay</Button>
+            </CartButtonWrapper>
+          </CartButtonsRow>
         </>
       )}
     </CartWrapper>

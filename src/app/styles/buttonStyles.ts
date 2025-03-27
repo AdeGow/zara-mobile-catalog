@@ -65,13 +65,13 @@ export const StyledButton = styled.button.withConfig({
   font-size: var(--font-size-label-m);
   height: 2.5rem;
   max-width: 100%;
-  min-width: 10.375rem;
+  min-width: 7rem;
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: -webkit-fit-content;
   width: -moz-fit-content;
-  width: fit-content;
+  width: auto;
   line-height: var(--line-height-label-m);
   letter-spacing: var(--letter-spacing-label-m);
   text-transform: var(--text-transform-label-m);
