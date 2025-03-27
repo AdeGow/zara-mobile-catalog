@@ -16,6 +16,7 @@ import {
   CartImageWrapper,
   RemoveButton,
   TotalPriceRow,
+  CartFooter,
   CartButtonsRow,
   CartButtonWrapper,
 } from '../styles/cartStyles';
@@ -40,56 +41,57 @@ export default function CartPage() {
 
   return (
     <CartWrapper className="section-container">
-      {cart && cart.length === 0 ? (
-        <EmptyMessage />
-      ) : (
-        <>
-          <h1>Cart ({cart.length})</h1>
-          <CartList>
-            {cart.map((item, index) => (
-              <StyledCartItem key={`${item.id}-${index}`}>
-                <CartImageWrapper>
-                  <Image
-                    src={item.selectedColor?.imageUrl ?? item.imageUrl}
-                    alt={item.name}
-                    width={200}
-                    height={200}
-                  />
-                </CartImageWrapper>
-                <CartItemDetails>
-                  <div>
-                    <p className="cart-item-name">{item.name}</p>
-                    <p>
-                      {item.selectedStorage && item.selectedStorage.capacity} |{' '}
-                      {item.selectedColor && item.selectedColor.name}
-                    </p>
-                    <p>{item.selectedStorage?.price ?? item.basePrice} EUR</p>
-                  </div>
-                  <div>
-                    <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
-                  </div>
-                </CartItemDetails>
-              </StyledCartItem>
-            ))}
-          </CartList>
+      <h1>Cart ({cart.length})</h1>
+      <CartList>
+        {cart.map((item, index) => (
+          <StyledCartItem key={`${item.id}-${index}`}>
+            <CartImageWrapper>
+              <Image
+                src={item.selectedColor?.imageUrl ?? item.imageUrl}
+                alt={item.name}
+                width={200}
+                height={200}
+              />
+            </CartImageWrapper>
+            <CartItemDetails>
+              <div>
+                <p className="cart-item-name">{item.name}</p>
+                <p>
+                  {item.selectedStorage && item.selectedStorage.capacity} |{' '}
+                  {item.selectedColor && item.selectedColor.name}
+                </p>
+                <p>{item.selectedStorage?.price ?? item.basePrice} EUR</p>
+              </div>
+              <div>
+                <RemoveButton onClick={() => handleRemove(item.id)}>Remove</RemoveButton>
+              </div>
+            </CartItemDetails>
+          </StyledCartItem>
+        ))}
+      </CartList>
 
-          <TotalPriceRow>
-            <h2>Total:</h2>
-            <h2>{total.toFixed(0)} EUR</h2>
-          </TotalPriceRow>
+      <CartFooter>
+        <TotalPriceRow>
+          <h2>Total:</h2>
+          <h2>{total.toFixed(0)} EUR</h2>
+        </TotalPriceRow>
 
-          <CartButtonsRow>
-            <CartButtonWrapper>
-              <Button variant="secondary" onClick={() => router.push('/mobiles')}>
-                Continue shopping
-              </Button>
-            </CartButtonWrapper>
-            <CartButtonWrapper>
-              <Button variant="primary">Pay</Button>
-            </CartButtonWrapper>
-          </CartButtonsRow>
-        </>
-      )}
+        <CartButtonsRow>
+          <CartButtonWrapper style={{ width: cart.length === 0 ? '100%' : '50%' }}>
+            <Button variant="secondary" onClick={() => router.push('/mobiles')}>
+              Continue shopping
+            </Button>
+          </CartButtonWrapper>
+          <CartButtonWrapper
+            style={{
+              display: cart.length === 0 ? 'none' : 'block',
+              width: cart.length === 0 ? '0' : '50%',
+            }}
+          >
+            <Button variant="primary">Pay</Button>
+          </CartButtonWrapper>
+        </CartButtonsRow>
+      </CartFooter>
     </CartWrapper>
   );
 }

@@ -98,10 +98,22 @@ export const RemoveButton = styled.button`
   margin: 0;
 `;
 
+export const CartFooter = styled.div`
+  display: flex;
+  padding: 1rem 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+`;
+
 export const TotalPriceRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 0.5rem;
 
   h2 {
     color: var(--color-content-high);
@@ -112,11 +124,13 @@ export const TotalPriceRow = styled.div`
     font-stretch: var(--font-stretch-title-l);
     font-weight: 400;
     font-family: var(--font-family-title-l);
+    margin-bottom: 0.3rem;
   }
 `;
 
 export const CartButtonsRow = styled.div`
   display: flex;
+  padding: 1rem 0.5rem;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
@@ -126,11 +140,7 @@ export const CartButtonsRow = styled.div`
 export const CartButtonWrapper = styled.div`
   display: flex;
 
-  @media (min-width: 375px) {
-    width: 50%;
-
-    button {
-      width: 100%;
-    }
+  button {
+    width: 100%;
   }
 `;
