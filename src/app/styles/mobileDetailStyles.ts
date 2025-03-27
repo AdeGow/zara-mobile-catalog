@@ -136,11 +136,7 @@ export const ColorsOptionsRow = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   gap: 2rem;
-
-  div {
-    position: relative;
-    display: inline-block;
-  }
+  padding-left: 0.5rem;
 `;
 
 export const ColorOptionSquare = styled.div<{ color: string; selected: boolean }>`
@@ -167,10 +163,32 @@ export const ColorOptionSquare = styled.div<{ color: string; selected: boolean }
   }
 `;
 
+export const ColorNameRow = styled.div`
+  min-height: 1.5rem;
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+
+  p {
+    font-size: var(--font-size-body-m);
+    font-weight: var(--font-weight-body-m);
+    color: var(--color-content-high);
+    margin: 0;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeIn 300ms ease-in-out;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+`;
+
 export const ColorNameLabel = styled.p`
-  position: absolute;
-  top: 1rem;
-  left: 0;
+  text-wrap: nowrap;
   font-size: var(--font-size-body-m);
   font-weight: var(--font-weight-body-m);
   color: var(--color-content-high);

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useProducts } from '../context/ProductsContext';
 import { addToCart } from '../utils/cartUtils';
 
 import { StorageOption, ColorOption } from '../interfaces/mobileType';
@@ -20,6 +19,7 @@ import {
   MobileFeaturesInfo,
   OptionsWrapper,
   ColorOptionSquare,
+  ColorNameRow,
   ColorNameLabel,
   StorageOptionsRow,
   ColorsOptionsRow,
@@ -72,7 +72,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
     ));
   };
 
-  console.log('mobile is', mobile);
+  const displayColor = hoveredColor ?? selectedColor;
 
   return (
     <>
@@ -114,27 +114,26 @@ export default function MobileDetail({ mobile }: MobileProps) {
               </StorageOptionsRow>
             </OptionsWrapper>
 
+            {/* Color options */}
             <OptionsWrapper>
               <p>Color. Pick your favorite.</p>
               <ColorsOptionsRow>
-                {/* Color options */}
                 {mobile.colorOptions.map((option) => (
-                  <div key={option.hexCode}>
-                    <ColorOptionSquare
-                      key={option.hexCode}
-                      color={option.hexCode}
-                      selected={selectedColor.hexCode === option.hexCode}
-                      onClick={() => setSelectedColor(option)}
-                      onMouseEnter={() => setHoveredColor(option)}
-                      onMouseLeave={() => setHoveredColor(null)}
-                    />
-                    {hoveredColor?.hexCode === option.hexCode && (
-                      <ColorNameLabel>{option.name}</ColorNameLabel>
-                    )}
-                  </div>
+                  <ColorOptionSquare
+                    key={option.hexCode}
+                    color={option.hexCode}
+                    selected={selectedColor.hexCode === option.hexCode}
+                    onClick={() => setSelectedColor(option)}
+                    onMouseEnter={() => setHoveredColor(option)}
+                    onMouseLeave={() => setHoveredColor(null)}
+                  />
                 ))}
               </ColorsOptionsRow>
+              <ColorNameRow>
+                <ColorNameLabel>{displayColor?.name}</ColorNameLabel>
+              </ColorNameRow>
             </OptionsWrapper>
+
             <AddToCartButtonWrapper>
               <Button
                 variant={selectedColor && selectedStorage ? 'primary' : 'disabled'}
