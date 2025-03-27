@@ -116,19 +116,6 @@ ul {
 	list-style: none;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-caption,
-th,
-td {
-	font-weight: inherit;
-	text-align: left;
-	vertical-align: middle;
-}
-
 input,
 textarea,
 select,

@@ -20,6 +20,7 @@ import {
   MobileFeaturesInfo,
   OptionsWrapper,
   ColorOptionSquare,
+  ColorNameLabel,
   StorageOptionsRow,
   ColorsOptionsRow,
   StorageOptionButton,
@@ -37,6 +38,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
 
   const [selectedColor, setSelectedColor] = useState<ColorOption>(mobile.colorOptions?.[0]);
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(null);
+  const [hoveredColor, setHoveredColor] = useState<ColorOption | null>(null);
 
   const handleAddToCart = () => {
     if (!selectedColor || !selectedStorage) return;
@@ -117,12 +119,19 @@ export default function MobileDetail({ mobile }: MobileProps) {
               <ColorsOptionsRow>
                 {/* Color options */}
                 {mobile.colorOptions.map((option) => (
-                  <ColorOptionSquare
-                    key={option.hexCode}
-                    color={option.hexCode}
-                    selected={selectedColor.hexCode === option.hexCode}
-                    onClick={() => setSelectedColor(option)}
-                  />
+                  <div key={option.hexCode}>
+                    <ColorOptionSquare
+                      key={option.hexCode}
+                      color={option.hexCode}
+                      selected={selectedColor.hexCode === option.hexCode}
+                      onClick={() => setSelectedColor(option)}
+                      onMouseEnter={() => setHoveredColor(option)}
+                      onMouseLeave={() => setHoveredColor(null)}
+                    />
+                    {hoveredColor?.hexCode === option.hexCode && (
+                      <ColorNameLabel>{option.name}</ColorNameLabel>
+                    )}
+                  </div>
                 ))}
               </ColorsOptionsRow>
             </OptionsWrapper>

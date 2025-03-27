@@ -95,7 +95,7 @@ export const OptionsWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-transform: var(--text-transform-title-l);
 `;
 
@@ -135,7 +135,12 @@ export const ColorsOptionsRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 1.5rem;
+  gap: 2rem;
+
+  div {
+    position: relative;
+    display: inline-block;
+  }
 `;
 
 export const ColorOptionSquare = styled.div<{ color: string; selected: boolean }>`
@@ -159,6 +164,24 @@ export const ColorOptionSquare = styled.div<{ color: string; selected: boolean }
   @media (min-width: 760px) {
     width: 20px;
     height: 20px;
+  }
+`;
+
+export const ColorNameLabel = styled.p`
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  font-size: var(--font-size-body-m);
+  font-weight: var(--font-weight-body-m);
+  color: var(--color-content-high);
+  transition: opacity 0.3s ease-in-out;
+  z-index: 8;
+  animation: appear 300ms ease-in-out;
+
+  @keyframes appear {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
   }
 `;
 
