@@ -74,10 +74,11 @@ export const ProductsProvider = ({
 
     try {
       console.log('Data not cached, fetching data from API');
+
       const response = await API.get(`/products?search=${trimmedQuery}&limit=${FETCH_LIMIT}`);
       const deduplicated = deduplicateMobiles(response.data || []);
       setSearchedMobiles(deduplicated);
-      // Store in cache
+
       searchCache.current.set(trimmedQuery, deduplicated);
     } catch (error) {
       console.error('Error searching mobiles:', error);
