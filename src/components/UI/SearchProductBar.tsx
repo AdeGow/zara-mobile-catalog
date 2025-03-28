@@ -24,10 +24,15 @@ export default function SearchProductBar() {
   };
 
   useEffect(() => {
+    const trimmedQuery = searchQuery.trim();
+
+    if (trimmedQuery.length === 0) {
+      searchMobiles('');
+      return;
+    }
+
     const delayDebounce = setTimeout(() => {
-      if (searchQuery.trim().length > 0) {
-        searchMobiles(searchQuery);
-      }
+      searchMobiles(trimmedQuery);
     }, 300);
 
     return () => clearTimeout(delayDebounce);
