@@ -125,6 +125,7 @@ export const CartFooter = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  background: var(--color-background-base);
 `;
 
 export const TotalPriceRow = styled.div`
@@ -173,6 +174,7 @@ export const InlineCartFooter = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  background: var(--color-background-base);
 `;
 
 export const InlineCartButtonWrapper = styled.div`

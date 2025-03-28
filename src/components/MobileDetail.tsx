@@ -11,6 +11,7 @@ import { CartItem } from '@/interfaces/cartItemType';
 
 import Button from '@/components/UI/Button';
 import MobileCard from '@/components/UI/MobileCard';
+import { DrawerContainer, DrawerContentWrapper } from '@/styles/UI/confirmationDrawerStyles';
 
 import {
   MobileDetailContainer,
@@ -38,6 +39,7 @@ export default function MobileDetail({ mobile }: MobileProps) {
   const [selectedColor, setSelectedColor] = useState<ColorOption>(mobile.colorOptions?.[0]);
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(null);
   const [hoveredColor, setHoveredColor] = useState<ColorOption | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const handleAddToCart = () => {
     if (!selectedColor || !selectedStorage) return;
@@ -49,6 +51,11 @@ export default function MobileDetail({ mobile }: MobileProps) {
     };
 
     addToCart(item);
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
+  const handleCloseDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
   };
 
   const formatSpecKey = (key: string) => {
@@ -74,6 +81,20 @@ export default function MobileDetail({ mobile }: MobileProps) {
 
   return (
     <>
+      {isDrawerOpen && (
+        <DrawerContainer>
+          <DrawerContentWrapper>
+            <p>The product has been added to your cart.</p>
+            <Button variant="primary" onClick={handleCloseDrawer}>
+              Continue shopping
+            </Button>
+            <Button variant="secondary" onClick={() => router.push('/cart')}>
+              Go to your cart
+            </Button>
+          </DrawerContentWrapper>
+        </DrawerContainer>
+      )}
+
       <div className="section-container">
         <Button onClick={() => router.push('/mobiles')} variant="transparent">
           <Image src="/assets/chevron_left.svg" alt="back button icon" width={20} height={20} />
