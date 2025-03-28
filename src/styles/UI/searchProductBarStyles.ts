@@ -16,6 +16,7 @@ export const SearchInputWrapper = styled.div`
     right: 0;
     top: 0;
     width: 9%;
+    height: auto;
     padding-right: 0.75rem;
   }
 
