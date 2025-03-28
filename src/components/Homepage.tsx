@@ -10,9 +10,10 @@ export default function HomepageContent() {
 
   return (
     <HomepageContainer>
-      <p>Welcome to Zara's mobiles catalogue</p>
+      <p>Welcome to Zara Mobiles Catalogue</p>
+      <br />
       <Button onClick={() => router.push('/mobiles')} variant="primary">
-        Let's start
+        Let&apos;s start
       </Button>
     </HomepageContainer>
   );

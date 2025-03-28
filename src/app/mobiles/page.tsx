@@ -1,4 +1,4 @@
-import MobilesGrid from './MobilesGrid';
+import MobilesGrid from '@/components/MobilesGrid';
 
 export default async function MobilesPage() {
   return (
