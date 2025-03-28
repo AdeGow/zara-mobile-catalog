@@ -15,7 +15,7 @@ export default function MobilesGrid() {
         <EmptyMessage />
       ) : (
         <MobilesGridWrapper>
-          {displayMobiles.map((mobile) => (
+          {displayMobiles.map((mobile, index) => (
             <MobileCard
               key={mobile.id}
               parent="mobiles-grid"
@@ -26,6 +26,7 @@ export default function MobilesGrid() {
                 basePrice: mobile.basePrice,
                 imageUrl: mobile.imageUrl,
               }}
+              priority={index < 4}
             />
           ))}
         </MobilesGridWrapper>

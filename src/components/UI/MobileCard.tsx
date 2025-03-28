@@ -12,7 +12,7 @@ import {
   MobilePrice,
 } from '@/styles/UI/mobileCardStyles';
 
-export default function Mobile({ mobile, parent }: MobileCardProps) {
+export default function Mobile({ mobile, parent, priority }: MobileCardProps) {
   const Wrapper = parent === 'mobiles-grid' ? MobileCardWrapper : SmallMobileCardWrapper;
 
   return (
@@ -24,6 +24,7 @@ export default function Mobile({ mobile, parent }: MobileCardProps) {
           className="mobile-card-img"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={priority}
         />
       </CardImageWrapper>
       <CardInfoWrapper>
