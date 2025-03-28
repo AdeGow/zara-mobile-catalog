@@ -1,6 +1,13 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { API } from '@/lib/api';
 import { ProductsProvider, useProducts } from '@/context/ProductsContext';
 import { Mobile } from '@/interfaces/mobileType';
+
+jest.mock('@/lib/api', () => ({
+  API: {
+    get: jest.fn(),
+  },
+}));
 
 const mockMobile: Mobile = {
   id: '1',
@@ -37,6 +44,10 @@ function TestComponent() {
 }
 
 describe('ProductsContext', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('provides initial mobiles after async init', async () => {
     render(
       <ProductsProvider initialMobiles={[mockMobile]}>
@@ -60,5 +71,28 @@ describe('ProductsContext', () => {
       const elements = screen.getAllByText('A15');
       expect(elements).toHaveLength(1);
     });
+  });
+
+  it('fetches additional mobiles if initialMobiles < 20', async () => {
+    // @ts-ignore
+    API.get.mockImplementation((url: string) => {
+      if (url.startsWith('/products?limit=')) {
+        return Promise.resolve({ data: [mockMobile] });
+      }
+      // Fallback for any other API call
+      return Promise.resolve({ data: [] });
+    });
+
+    render(
+      <ProductsProvider initialMobiles={[mockMobile]}>
+        <TestComponent />
+      </ProductsProvider>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('A15')).toBeInTheDocument();
+    });
+
+    expect(API.get).toHaveBeenCalledWith('/products?limit=19&offset=1');
   });
 });
