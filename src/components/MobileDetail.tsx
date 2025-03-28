@@ -49,7 +49,6 @@ export default function MobileDetail({ mobile }: MobileProps) {
     };
 
     addToCart(item);
-    console.log('adding item to cart with item', item);
   };
 
   const formatSpecKey = (key: string) => {
