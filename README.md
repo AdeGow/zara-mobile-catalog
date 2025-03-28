@@ -1,9 +1,8 @@
-Esto es proyecto [Next.js](https://nextjs.org) bootstrapped con [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 # Zara Mobile Catalog
 
 Aplicación web creada como parte de la prueba técnica de Frontend para el reto Zara Challenge 2025. Permite visualizar, buscar y gestionar un catálogo de teléfonos móviles, con funcionalidades de búsqueda en tiempo real, selección detallada y carrito de compras persistente.
 
+Es un proyecto [Next.js](https://nextjs.org) bootstrapped con [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 Repositorio: [https://github.com/AdeGow/zara-mobile-catalog](https://github.com/AdeGow/zara-mobile-catalog)
 
 ---
@@ -55,7 +54,7 @@ Esto genera los assets optimizados y minimizados.
 
 ---
 
-## 🚀 Stack Tecnológico
+## 🛠 Stack Tecnológico
 
 - **Framework:** Next.js v15 (App Router)
 - **Lenguaje:** TypeScript
@@ -102,7 +101,7 @@ Este proyecto fue construido siguiendo los requerimientos y algunas de las instr
 - Uso de styled-components
 - Variables CSS para colores y fuentes
 - ESLint y Prettier integrados automáticamente por Next.js
-- 
+
 ### 7. **Testing unitario con Jest**
 - Pruebas para contexto (`ProductsContext`), lógica de carrito y componentes como `MobileDetail`, `Cart`, `SearchProductBar`
 - Mock de API y funciones de localStorage
