@@ -76,8 +76,8 @@ export default function CartPage() {
       {/* Mobile Footer */}
       <CartFooter className="mobile-footer">
         <TotalPriceRow>
-          <h2>Total:</h2>
-          <h2>{total.toFixed(0)} EUR</h2>
+          <h3>Total:</h3>
+          <h3>{total.toFixed(0)} EUR</h3>
         </TotalPriceRow>
         <CartButtonsRow>
           <CartButtonWrapper style={{ width: cart.length === 0 ? '100%' : '50%' }}>
@@ -104,8 +104,8 @@ export default function CartPage() {
         {cart.length > 0 && (
           <InlinePaymentWrapper>
             <InlineTotalPriceRow>
-              <h2>Total:</h2>
-              <h2>{total.toFixed(0)} EUR</h2>
+              <h3>Total:</h3>
+              <h3>{total.toFixed(0)} EUR</h3>
             </InlineTotalPriceRow>
             <Button variant="primary">Pay</Button>
           </InlinePaymentWrapper>

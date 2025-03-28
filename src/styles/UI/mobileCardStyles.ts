@@ -153,7 +153,6 @@ export const MobileInfoRow = styled.div`
 
   .mobile-card-brand {
     color: var(--color-content-mid);
-    font-size: var(--font-size-body-s);
     transition: color 1s;
     transition-timing-function: cubic-bezier(0.7, 0, 0.1, 1);
   }

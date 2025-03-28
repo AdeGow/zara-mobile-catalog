@@ -29,7 +29,7 @@ export default function Mobile({ mobile, parent, priority }: MobileCardProps) {
       </CardImageWrapper>
       <CardInfoWrapper>
         <MobileInfoRow>
-          <p className="mobile-card-brand">{mobile.brand}</p>
+          <p className="mobile-card-brand small-text">{mobile.brand}</p>
         </MobileInfoRow>
         <MobileInfoRow>
           <MobileName>{mobile.name}</MobileName>

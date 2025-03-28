@@ -172,7 +172,6 @@ export const ColorNameRow = styled.div`
     text-wrap: nowrap;
     font-size: var(--font-size-body-m);
     font-weight: var(--font-weight-body-m);
-    color: var(--color-content-high);
     margin: 0;
     transition: opacity 0.3s ease-in-out;
     animation: fadeIn 300ms ease-in-out;
@@ -233,18 +232,9 @@ export const SpecRow = styled.div`
   justify-content: flex-start;
   width: 100%;
   border-top: 1px solid var(--color-border-secondary);
+
   &:last-child {
     border-bottom: 1px solid var(--color-border-secondary);
-  }
-
-  p {
-    color: var(--color-content-high);
-    font-size: var(--font-size-body-s);
-    line-height: var(--line-height-body-s);
-    text-transform: var(--text-transform-body-s);
-    font-stretch: var(--font-stretch-body-s);
-    font-weight: var(--font-weight-body-s);
-    font-family: var(--font-family-body-s);
   }
 `;
 

@@ -7,13 +7,6 @@ export const CartWrapper = styled.div`
   gap: 1.5rem;
 
   h1 {
-    color: var(--color-content-high);
-    font-size: var(--font-size-title-l);
-    line-height: var(--line-height-title-l);
-    text-transform: var(--text-transform-title-l);
-    font-stretch: var(--font-stretch-title-l);
-    font-weight: var(--font-weight-title-l);
-    font-family: var(--font-family-title-l);
     margin-bottom: 0;
   }
 
@@ -134,16 +127,10 @@ export const TotalPriceRow = styled.div`
   justify-content: space-between;
   padding: 0 0.5rem;
 
-  h2 {
-    color: var(--color-content-high);
-    font-size: var(--font-size-title-l);
+  h3 {
     text-align: left;
-    line-height: var(--line-height-title-l);
-    text-transform: var(--text-transform-title-l);
-    font-stretch: var(--font-stretch-title-l);
     font-weight: 400;
-    font-family: var(--font-family-title-l);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0;
   }
 `;
 
@@ -193,15 +180,9 @@ export const InlineTotalPriceRow = styled.div`
   padding-right: 1rem;
   gap: 1rem;
 
-  h2 {
-    color: var(--color-content-high);
-    font-size: var(--font-size-title-m);
+  h3 {
     text-align: left;
-    line-height: var(--line-height-title-m);
-    text-transform: var(--text-transform-title-m);
-    font-stretch: var(--font-stretch-title-m);
     font-weight: 400;
-    font-family: var(--font-family-title-m);
     margin-bottom: 0;
   }
 `;

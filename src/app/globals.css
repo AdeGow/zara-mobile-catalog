@@ -136,15 +136,44 @@ button {
 	padding: 0;
 }
 
-input:-webkit-autofill,
-select:-webkit-autofill {
-	/* stylelint-disable property-no-vendor-prefix */
-	-webkit-animation-fill-mode: both;
-	-webkit-animation-name: form-input-autofill-webkit-hack;
-	box-shadow: 0 0 0 62.5rem var(--color-main-000) inset;
-	/* stylelint-disable-next-line declaration-no-important */
-	-webkit-text-fill-color: var(--color-main) !important;
-	/* stylelint-enable property-no-vendor-prefix */
+h1, h2 {
+  color: var(--color-content-high);
+  font-size: var(--font-size-title-l);
+  line-height: var(--line-height-title-l);
+  text-transform: var(--text-transform-title-l);
+  font-stretch: var(--font-stretch-title-l);
+  font-weight: var(--font-weight-title-l);
+  font-family: var(--font-family-title-l);
+}
+
+h3 {
+  color: var(--color-content-high);
+  font-size: var(--font-size-title-m);
+  line-height: var(--line-height-title-m);
+  text-transform: var(--text-transform-title-m);
+  font-stretch: var(--font-stretch-title-m);
+  font-weight: var(--font-weight-title-m);
+  font-family: var(--font-family-title-m);
+}
+
+p {
+  color: var(--color-content-high);
+  font-size: var(--font-size-body-l);
+  line-height: var(--line-height-body-l);
+  text-transform: var(--text-transform-body-l);
+  font-stretch: var(--font-stretch-body-l);
+  font-weight: var(--font-weight-body-l);
+  font-family: var(--font-family-body-l);
+}
+
+.small-text {
+  color: var(--color-content-high);
+  font-size: var(--font-size-body-s);
+  line-height: var(--line-height-body-s);
+  text-transform: var(--text-transform-body-s);
+  font-stretch: var(--font-stretch-body-s);
+  font-weight: var(--font-weight-body-s);
+  font-family: var(--font-family-body-s);
 }
 
 /* Safari's mobile browser zooms in when an input is focused and its font size is smaller than 16px. Catalog team included this animation in their search input to solve that problem */
@@ -183,22 +212,12 @@ a {
   }
 }
 
-
 :root {
-	--grid-columns: 4;
-	--grid-column-gutter: 0.5rem;
-	--grid-column-width: calc((100% - var(--grid-column-gutter) * 3 - var(--grid-lateral-margin) * 2) / 4);
-	--grid-lateral-margin: 1.25rem;
-	--grid-width: calc(100vw - var(--layout-lateral-margin) * 2);
 	--layout-lateral-margin: var(--spacing-07);
 }
 
 @media screen and (min-width: 48rem) {
 	:root {
-		--grid-columns: 12;
-		--grid-column-gutter: 1.25rem;
-		--grid-column-width: calc((100% - var(--grid-column-gutter) * 11) / 12);
-		--margined-grid-column-width: calc((var(--grid-width) - var(--grid-column-gutter) * 11) / 12);
 		--layout-lateral-margin: var(--spacing-08);
 	}
 }
@@ -207,18 +226,6 @@ a {
 	:root {
 		--layout-lateral-margin: var(--spacing-15);
 	}
-}
-
-.theme .theme--base {
-	color: var(--color-content-high);
-	fill: var(--color-content-high);
-	font-family: var(--font-family-main);
-	font-size: var(--font-size-body-l);
-	height: 100%;
-	line-height: 1.231;
-	letter-spacing: var(--letter-spacing-body-l);
-	font-stretch: var(--font-stretch-body-l);
-	font-weight: var(--font-weight-body-l);
 }
 
 :root {

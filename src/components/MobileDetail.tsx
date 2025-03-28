@@ -68,10 +68,10 @@ export default function MobileDetail({ mobile }: MobileProps) {
     return Object.entries(mobile.specs).map(([key, value]) => (
       <SpecRow key={key}>
         <SpecName>
-          <p>{formatSpecKey(key)}</p>
+          <p className="small-text">{formatSpecKey(key)}</p>
         </SpecName>
         <SpecValue>
-          <p>{value}</p>
+          <p className="small-text">{value}</p>
         </SpecValue>
       </SpecRow>
     ));
