@@ -26,7 +26,7 @@ export default function MobilesGrid() {
                 basePrice: mobile.basePrice,
                 imageUrl: mobile.imageUrl,
               }}
-              priority={index < 4}
+              priority={index < 10}
             />
           ))}
         </MobilesGridWrapper>
