@@ -1,6 +1,7 @@
 # Zara Mobile Catalog
 
-Aplicación web creada como parte de la prueba técnica de Frontend para el reto Zara Challenge 2025. Permite visualizar, buscar y gestionar un catálogo de teléfonos móviles, con funcionalidades de búsqueda en tiempo real, selección detallada y carrito de compras persistente.
+Aplicación web que permite visualizar, buscar y gestionar un catálogo de teléfonos móviles, con funcionalidades de búsqueda en tiempo real, selección detallada y carrito de compras persistente.
+El diseño está inspirado del sitio web de www.zara.com
 
 Es un proyecto [Next.js](https://nextjs.org) bootstrapped con [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 Repositorio: [https://github.com/AdeGow/zara-mobile-catalog](https://github.com/AdeGow/zara-mobile-catalog)
@@ -58,6 +59,7 @@ Esto genera los assets optimizados y minimizados.
 
 - **Framework:** Next.js v15 (App Router)
 - **Lenguaje:** TypeScript
+- **Datos:** REST API
 - **Renderizado:** SSR (Server Side Rendering)
 - **Estilos:** Styled-components y variables CSS
 - **Estado global:** React Context API
@@ -68,8 +70,6 @@ Esto genera los assets optimizados y minimizados.
 ---
 
 ## 📚 Decisiones técnicas y desarrollo
-
-Este proyecto fue construido siguiendo los requerimientos y algunas de las instrucciones opcionales de la prueba técnica. Las decisiones clave incluyen:
 
 ### 1. **Arquitectura modular con App Router**
 - Uso de componentes servidor para las rutas principales
@@ -111,26 +111,4 @@ Este proyecto fue construido siguiendo los requerimientos y algunas de las instr
   - `dev`: assets sin minimizar
   - `build`: assets minimizados y optimizados
 
-### 9. **Gestión de autenticación de la API con API Key**
-- Se configuró un cliente Axios para que todas las peticiones a la API REST incluyen el header `x-api-key`
-- La clave se almacena de forma segura en una variable de entorno `.env` llamada `NEXT_PUBLIC_API_KEY`
-
 ---
-
-## 🔧 API REST
-
-- URL base: [https://prueba-tecnica-api-tienda-moviles.onrender.com](https://prueba-tecnica-api-tienda-moviles.onrender.com)
-- Autenticación: Se incluye `x-api-key` en los headers de todas las peticiones
-- Documentación de la API: [Ver docs](https://prueba-tecnica-api-tienda-moviles.onrender.com/docs/)
-
----
-
-## 🚨 Notas finales
-
-No se ha realizado despliegue a producción por falta de tiempo, pero el proyecto está preparado para ello.
-
-Gracias por la oportunidad de realizar esta prueba. Para cualquier duda o comentario, puedes contactarme a través del repositorio o de mi correo adelinedegaulejac@gmail.com.
-
----
-
-Made with ❤️ by [AdeGow](https://github.com/AdeGow) para el Zara Challenge 2025.
