@@ -44,15 +44,6 @@ npm run dev
 
 Aplicación disponible en: `http://localhost:3000`
 
-### Modo producción
-
-```bash
-npm run build
-npm start
-```
-
-Esto genera los assets optimizados y minimizados.
-
 ---
 
 ## 🛠 Stack Tecnológico
